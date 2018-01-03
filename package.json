@@ -46,7 +46,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "lint": "standard --verbose | snazzy",
+    "lint": "standard --verbose --fix | snazzy",
     "prerelease": "standard-version --prerelease",
     "release": "yarn release:patch",
     "release:first": "standard-version --first-release",
@@ -54,7 +54,7 @@
     "release:minor": "standard-version --release-as minor",
     "release:patch": "standard-version --release-as patch",
     "release:dry": "standard-version --dry-run",
-    "precommit:": "yarn lint"
+    "precommit": "yarn lint"
   },
   "jest": {
     "collectCoverageFrom": [
