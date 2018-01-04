@@ -113,6 +113,8 @@
     "standard-version": "^4.3.0"
   },
   "standard": {
+    "parser": "babel-eslint",
+    "plugins": [ "flowtype" ],
     "env": [
       "jest",
       "browser",
