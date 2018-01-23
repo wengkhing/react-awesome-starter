@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
+
+import VersionChecker from './components/VersionChecker'
+
 import logo from './logo.svg'
 import './App.scss'
 
@@ -7,6 +10,7 @@ class App extends Component {
   render () {
     return (
       <div className='App'>
+        <VersionChecker />
         <Helmet title='App Title' />
         <header className='App-header'>
           <img src={logo} className='App-logo' alt='logo' />
