@@ -22,7 +22,7 @@ class LoginPage extends Component {
 
   redirect () {
     if (this.props.auth) {
-      return <Redirect to='/manage/today' />
+      return <Redirect to='/manage/group/overview' />
     }
   }
 
@@ -31,7 +31,7 @@ class LoginPage extends Component {
       <div className='page-login'>
         {this.redirect()}
         <header className='header'>
-          <img src='https://s3-ap-southeast-1.amazonaws.com/dd-express-assets/dd-biz-logo.png' className='App-logo' alt='logo' />
+          <h1>Meetup Buzzer</h1>
         </header>
         <div className='input-element'>
           <label>Email</label>

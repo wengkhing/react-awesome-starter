@@ -6,6 +6,10 @@ import GroupOverviewPage from './containers/Group/GroupOverview'
 import GroupSinglePage from './containers/Group/GroupSingle'
 import GroupEditPage from './containers/Group/GroupEdit'
 
+import AgendaCreatePage from './container/Agenda/AgendaCreate'
+// put pages that doesn't required authentication in appRoutes
+// To change first page to view after login
+//    Go to Login.js and modify path in <Redirect to>
 export const appRoutes = [
   {
     path: '/auth/login',
@@ -18,6 +22,7 @@ export const appRoutes = [
   }
 ]
 
+// put pages that required authentication in workspaceRoutes
 export const workspaceRoutes = [
   {
     path: '/manage/group/overview',
@@ -28,6 +33,9 @@ export const workspaceRoutes = [
   }, {
     path: '/manage/group/:id/edit',
     component: GroupEditPage
+  }, {
+    path: '/manage/group/:id/agenda/create',
+    component: AgendaCreatePage
   }, {
     component: Error404
   }
