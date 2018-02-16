@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
+import { Helmet } from 'react-helmet'
 
 import { login } from '../../store/actions/auth.action'
 
@@ -29,6 +30,7 @@ class LoginPage extends Component {
   render () {
     return (
       <div className='page-login'>
+        <Helmet title='React Awesome Starter: Login' />
         {this.redirect()}
         <header className='header'>
           <h1>Meetup Buzzer</h1>

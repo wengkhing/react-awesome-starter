@@ -10,6 +10,7 @@ import { appRoutes } from './App.routes'
 import VersionChecker from './components/VersionChecker'
 import Loader from './components/Loader'
 
+import 'font-awesome/css/font-awesome.min.css'
 import './App.scss'
 
 class App extends Component {

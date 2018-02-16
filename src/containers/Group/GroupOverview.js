@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Helmet } from 'react-helmet'
 
 class GroupOverviewPage extends Component {
   render () {
     return (
       <div className='scope-group-overview'>
+        <Helmet title='Meetup Buzzer: Group Overview' />
         <p>This is group overview page</p>
       </div>
     )

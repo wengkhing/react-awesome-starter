@@ -66,11 +66,7 @@ class MenuBar extends Component {
                     <ul>
                       <li>
                         <i className='fa fa-tachometer' aria-hidden='true' />
-                        <span>Ongoing Assignment</span>
-                      </li>
-                      <li>
-                        <i className='fa fa-gear' aria-hidden='true' />
-                        <span>Settings</span>
+                        <span>Groups</span>
                       </li>
                       <li onClick={this.props.logout}>
                         <i className='fa fa-sign-out' aria-hidden='true' />
