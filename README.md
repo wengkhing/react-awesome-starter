@@ -1,6 +1,6 @@
 # React Awesome Starter
 
-This is an starter built on top of the Facebook's [create-react-app](https://github.com/facebookincubator/create-react-app)
+This is an opinionted starter created using the ejected Facebook's [create-react-app@1.4.1](https://github.com/facebookincubator/create-react-app).
 
 ## Installation
 
@@ -11,8 +11,7 @@ yarn
 ```
 
 ## Features
-* [create-react-app](https://github.com/facebookincubator/create-react-app) as base. This project can received updates from create-react-app without a problem.
-* [custom-react-script](https://github.com/kitze/custom-react-scripts) allow custom config for create-react-app WITHOUT ejecting. Check this project out, it's really cool. Right now it supports decorators, babel-preset-stage-0, LESS, SASS and CSS modules.
+* [create-react-app](https://github.com/facebookincubator/create-react-app) as base
 * [React Router v4](https://reacttraining.com/react-router/) as the router
 * [redux](https://github.com/reactjs/redux) for state management
 * [axios](https://github.com/mzabriskie/axios) for universal data fetching/rehydration on the client
