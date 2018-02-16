@@ -22,7 +22,7 @@ class App extends Component {
         <Switch>
           <Route path='/' exact
             render={() => (
-              <Redirect to='/auth/login' />
+              <Redirect to='/kitchen/sink' />
           )} />
           {renderRoutes(appRoutes)}
         </Switch>

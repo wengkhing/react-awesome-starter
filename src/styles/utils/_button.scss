@@ -1,0 +1,40 @@
+@import './utility';
+@import '../variables';
+
+button.btn {
+  margin: mlf(1);
+  padding: plf(2) plf(4);
+  box-sizing: border-box;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  border: none;
+  cursor: pointer;
+
+  &:disabled {
+    color: #bbb !important;
+    background-color: #89a !important;
+    cursor: not-allowed !important;
+  }
+
+  &.--primary {
+    color:#fff;
+    background-color: $primary-color;
+  }
+
+  &.--success {
+    color:#fff;
+    background-color: $success-color;
+  }
+
+  &.--danger {
+    color:#fff;
+    background-color: $danger-color;
+  }
+
+  &.--block {
+    display: block;
+    width: calc(100% - #{mlf(2)});
+  }
+}
