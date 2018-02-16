@@ -1,0 +1,39 @@
+.static-element {
+  margin-top: 4px;
+  margin-bottom: 16px;
+
+  label {
+    display: block;
+    font-size: 10px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .__primary {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+
+    small {
+      font-size: 0.85em;
+      font-weight: 400;
+    }
+  }
+
+  .__secondary {
+    font-size: 12px;
+    margin-bottom: 1px;
+  }
+
+  .__actionable {
+    font-size: 14px;
+    display: block;
+    text-decoration: underline;
+    color: #3456cd;
+    margin-top: 6px;
+  }
+}
+
+.static-element.--center {
+  text-align: center;
+}

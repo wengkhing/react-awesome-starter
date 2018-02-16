@@ -11,8 +11,8 @@ import App from './App'
 // Uncomment the following line for PWA
 // import registerServiceWorker from './registerServiceWorker'
 
-const history = createHistory()
-const store = configureStore(history)
+export const history = createHistory()
+export const store = configureStore(history)
 
 ReactDOM.render(
   <Provider store={store} >
