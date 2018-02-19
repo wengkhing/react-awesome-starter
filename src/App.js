@@ -7,8 +7,8 @@ import { Helmet } from 'react-helmet'
 
 import { renderRoutes } from './helpers/render-routes'
 import { appRoutes } from './App.routes'
-import VersionChecker from './components/VersionChecker'
-import Loader from './components/Loader'
+// import VersionChecker from './components/VersionChecker'
+// import Loader from './components/Loader'
 
 import 'font-awesome/css/font-awesome.min.css'
 import './App.scss'
@@ -17,8 +17,6 @@ class App extends Component {
   render () {
     return (
       <div className='scope-app'>
-        <VersionChecker />
-        <Loader />
         <Helmet title='Meetup Buzzer' />
         <Switch>
           <Route path='/' exact

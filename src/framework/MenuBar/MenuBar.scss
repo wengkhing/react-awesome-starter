@@ -1,0 +1,96 @@
+@import '../../styles/utils/shadow';
+
+.component-menu-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+
+  .menu-bar {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+    padding: 12px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    @include shadow(1);
+  }
+
+  .the-menu-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    z-index: 200;
+
+    aside {
+      position: absolute;
+      color: #fff;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 85vw;
+      background-color: #132330;
+      z-index: 200;
+      transition: all 0.4s cubic-bezier(.25,.8,.25,1);
+      box-shadow: 0 5px 10px rgba(0,0,0,0.19), 6px 6px 6px rgba(0,0,0,0.23);
+
+      .close {
+        position: absolute;
+        top: 0px;
+        right: 4px;
+        padding: 12px;
+        font-size: 22px;
+        font-weight: 600;
+      }
+
+      header {
+        padding: 24px 36px 36px 12px;
+        h1 {
+          font-size: 12px;
+          font-weight: 300;
+          letter-spacing: 3px;
+          margin-bottom: 6px;
+        }
+
+        h2 {
+          font-size: 13px;
+          font-weight: 600;
+          line-height: 18px;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+        }
+      }
+
+      ul {
+        li {
+          display: block;
+          padding: 16px 24px;
+
+          span {
+            margin-left: 36px;
+          }
+        }
+
+        li:active {
+          background-color: #233350;
+        }
+      }
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 100;
+      transition: all 0.4s cubic-bezier(.25,.8,.25,1);
+    }
+  }
+}
