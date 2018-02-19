@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Helmet } from 'react-helmet'
-import { Page, Section, H1, H2, H3, Button, Input, Loader } from '../../framework'
+import { Page, Section, H1, H2, H3, Button, Input, Loader, MenuBar, MenuItem } from '../../framework'
+
+import './Sink.scss'
 
 class KitchenSinkPage extends Component {
-
   constructor (props) {
     super(props)
     this.state = {
@@ -54,7 +55,15 @@ class KitchenSinkPage extends Component {
               onChange={this.updateLoadingState} />
               is loading
           </label>
-          <p>See loading bar at top</p>
+          <p>(See loading bar at top)</p>
+        </Section>
+        <Section>
+          <H1>Menu Bar</H1>
+          <MenuBar>
+            <MenuItem to='/manage/group/overview' icon='tachometer'>Groups</MenuItem>
+            <MenuItem icon='sign-out'>Logout</MenuItem>
+          </MenuBar>
+          <p>(See top)</p>
         </Section>
         <Section>
           <H1>Input Elements</H1>

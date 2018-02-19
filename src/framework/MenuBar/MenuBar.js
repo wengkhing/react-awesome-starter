@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import { Transition } from 'react-transition-group'
-
-import { logout } from '../../store/actions/auth.action'
+import { Link } from 'react-router-dom'
 
 import './MenuBar.scss'
 
@@ -29,7 +26,7 @@ const overlayTransition = {
   entered: { opacity: 1 }
 }
 
-class MenuBar extends Component {
+export class MenuBar extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -47,7 +44,7 @@ class MenuBar extends Component {
     return (
       <div className='component-menu-bar'>
         <section className='menu-bar'>
-          <a onClick={() => this.toggleMenu(true)}>
+          <a className='burger-icon' onClick={() => this.toggleMenu(true)}>
             <i className='fa fa-bars' aria-hidden='true' />
           </a>
         </section>
@@ -60,18 +57,11 @@ class MenuBar extends Component {
                     <a className='close'
                       onClick={() => this.toggleMenu(false)}>x</a>
                     <header>
-                      <h1>Welcome,</h1>
+                      <h1>Welcome</h1>
                       <h2>Mohammad Ibrahim Ali bin Yuusof</h2>
                     </header>
                     <ul>
-                      <li>
-                        <i className='fa fa-tachometer' aria-hidden='true' />
-                        <span>Groups</span>
-                      </li>
-                      <li onClick={this.props.logout}>
-                        <i className='fa fa-sign-out' aria-hidden='true' />
-                        <span>Logout</span>
-                      </li>
+                      {this.props.children}
                     </ul>
                   </aside>
                 )}
@@ -91,14 +81,24 @@ class MenuBar extends Component {
   }
 }
 
-// function mapStateToProps (state) {
-//   return {
-//     state
-//   }
-// }
+export const MenuItem = (props) => {
+  const { icon, to, children, ...attr } = props
 
-function mapDispatchToProps (dispatch) {
-  return bindActionCreators({ logout }, dispatch)
+  if (to) {
+    return (
+      <li {...attr}>
+        <Link to={to}>
+          <i className={`fa fa-${icon}`} aria-hidden='true' />
+          <span>{children}</span>
+        </Link>
+      </li>
+    )
+  }
+
+  return (
+    <li {...attr}>
+      <i className={`fa fa-${icon}`} aria-hidden='true' />
+      <span>{children}</span>
+    </li>
+  )
 }
-export default connect(null, mapDispatchToProps)(MenuBar)
-// export default MenuBar
