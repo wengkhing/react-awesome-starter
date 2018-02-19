@@ -1,7 +1,15 @@
 @import '../utils/utility';
+@import '../utils/variables';
 
 .af-page {
-  margin: mlf(2);
+  max-width: $page-max-width;
+  margin: mlf(2) auto;
+
+  @media only screen and (max-width: $page-max-width) {
+    & {
+      margin: mlf(2) mlf(2.5);
+    }
+  }
 
   h1 { font-size: 1.6em; }
   h2 { font-size: 1.3em; font-weight: 400 !important; }
@@ -24,3 +32,4 @@
     }
   }
 }
+
