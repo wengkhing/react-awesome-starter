@@ -1,0 +1,26 @@
+@import '../utils/utility';
+
+.af-page {
+  margin: mlf(2);
+
+  h1 { font-size: 1.6em; }
+  h2 { font-size: 1.3em; font-weight: 400 !important; }
+  h3 { font-size: 0.8em; letter-spacing: 2px !important; }
+  p { margin-bottom: mlf(2); line-height: 1.4; }
+
+  .af-page-header {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: mlf(2.5);
+    margin-bottom: mlf(1);
+  }
+
+  section.af-page-section {
+    padding: plf(2) 0;
+
+    .af-page-header:nth-child(1) {
+      margin-top: 0;
+    }
+  }
+}

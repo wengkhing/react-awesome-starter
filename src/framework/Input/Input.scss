@@ -1,0 +1,32 @@
+@import '../utils/utility';
+@import '../utils/variables';
+
+.component-input-element {
+  padding: 8px;
+  box-sizing: border-box;
+
+  label {
+    font-size: $input-label-font-size;
+    margin-bottom: plf(1);
+    letter-spacing: 2px;
+    display: block;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    padding: plf(1) plf(2);
+    font-size: $input-value-font-size;
+    letter-spacing: 2px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: all 0.5s cubic-bezier(.25,.8,.25,1);
+  }
+
+  input:focus {
+    border: 1px solid rgba(45, 67, 200, 0.5);
+  }
+}

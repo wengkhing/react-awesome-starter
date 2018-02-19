@@ -1,16 +1,22 @@
-@import './utility';
-@import '../variables';
+@import '../utils/utility';
+@import '../utils/variables';
 
-button.btn {
+.btn {
+  display: inline-block;
+  vertical-align: top;
+  color: inherit;
   margin: mlf(1);
   padding: plf(2) plf(4);
   box-sizing: border-box;
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: $button-font-size;
   font-weight: 600;
   letter-spacing: 2px;
   border: none;
   cursor: pointer;
+  background: buttonface;
+  text-decoration: none;
+  line-height: calc(1em - 1px);
 
   &:disabled {
     color: #bbb !important;

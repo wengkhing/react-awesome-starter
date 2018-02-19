@@ -1,0 +1,9 @@
+@import './variables';
+
+@function mlf($factor) {
+  @return $factor * $base-margin-whitespace;
+}
+
+@function plf($factor) {
+  @return $factor * $base-padding-whitespace;
+}
