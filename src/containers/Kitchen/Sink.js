@@ -71,6 +71,10 @@ class KitchenSinkPage extends Component {
           <Input label='Password' type='password' placeholder='Password here' />
           <Input label='Email' placeholder='Email here' disabled />
         </Section>
+        <Section>
+          <H1>Version Checker</H1>
+          <p>Check if app version match with package version</p>
+        </Section>
       </Page>
     )
   }

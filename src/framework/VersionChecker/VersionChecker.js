@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import './style.scss'
+import './VersionChecker.scss'
 
 const { version: currentVersion } = require('../../../package.json')
 const interval = 900000
 
-class VersionChecker extends Component {
+export class VersionChecker extends Component {
   constructor (props) {
     super(props)
 
@@ -45,5 +45,3 @@ class VersionChecker extends Component {
     )
   }
 }
-
-export default VersionChecker
