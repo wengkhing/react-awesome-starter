@@ -87,7 +87,7 @@ export const MenuItem = (props) => {
   if (to) {
     return (
       <li {...attr}>
-        <Link to={to}>
+        <Link to={to} className='btn-menu'>
           <i className={`fa fa-${icon}`} aria-hidden='true' />
           <span>{children}</span>
         </Link>
@@ -97,8 +97,10 @@ export const MenuItem = (props) => {
 
   return (
     <li {...attr}>
-      <i className={`fa fa-${icon}`} aria-hidden='true' />
-      <span>{children}</span>
+      <div className='btn-menu'>
+        <i className={`fa fa-${icon}`} aria-hidden='true' />
+        <span>{children}</span>
+      </div>
     </li>
   )
 }

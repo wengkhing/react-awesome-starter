@@ -75,11 +75,12 @@
       ul {
         li {
           display: block;
-          padding: 16px 24px;
           cursor: pointer;
 
-          a {
+          .btn-menu {
+            padding: 16px 24px;
             text-decoration: none;
+            display: block;
             color: inherit;
           }
 
