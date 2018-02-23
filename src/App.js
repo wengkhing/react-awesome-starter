@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet'
 
 import { renderRoutes } from './helpers/render-routes'
 import { appRoutes } from './App.routes'
-import { LoadWrapper } from './components/LoadWrapper'
+import LoadWrapper from './components/LoadWrapper'
 // import { VersionChecker } from './framework'
 
 import 'font-awesome/css/font-awesome.min.css'
