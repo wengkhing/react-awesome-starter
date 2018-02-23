@@ -7,7 +7,7 @@ export const DO_NOTHING = '[APP] Do Nothing'
 
 const initialState = {
   auth: false,
-  isSubmitting: false,
+  isLoading: false,
   loaderMessage: 'Loading..',
   error: null
 }
@@ -19,14 +19,14 @@ export default function (state = initialState, action) {
         auth: action.payload }
     case START_LOADING:
       return { ...state,
-        isSubmitting: true,
+        isLoading: true,
         loaderMessage: action.payload ? action.payload : 'Loading..' }
     case END_LOADING:
       return { ...state,
-        isSubmitting: false }
+        isLoading: false }
     case UPDATE_ERROR:
       return { ...state,
-        isSubmitting: false,
+        isLoading: false,
         error: action.payload }
     case DO_NOTHING:
     default:
