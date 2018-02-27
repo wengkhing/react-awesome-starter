@@ -33,3 +33,10 @@
   }
 }
 
+.af-layout {
+  display: grid;
+
+  section.af-page-section {
+    padding: plf(3) plf(3);
+  }
+}

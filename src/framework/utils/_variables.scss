@@ -22,3 +22,7 @@ $button-font-size: 12px;
 // Input
 $input-label-font-size: 12px;
 $input-value-font-size: 16px;
+
+:export {
+  pageMaxWidth: $page-max-width;
+}
