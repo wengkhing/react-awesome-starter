@@ -86,39 +86,42 @@ class KitchenSinkPage extends Component {
         <Section>
           <H1>Layout</H1>
           <Layout
-            grid='100px auto 100px, 100px auto 100px'
+            grid='auto auto auto | minmax(100px, 200px) auto minmax(100px, 200px)'
             gap='5px 10px'
             areas={`
             "hd hd hd"
             "nv ct sb"
             "ft ft ft"`}
-            smGrid='auto, auto auto'
+            smGrid='auto | auto auto'
             smAreas='
             "hd hd"
             "nv sb"
             "ct ct"
             "ft ft"'>
             <Section area='hd'
-              style={{backgroundColor: '#3456ab'}}>
-              <H3>Header</H3>
+              style={{backgroundColor: '#789aab'}}>
+              <H2>Header</H2>
+              <p>Play with the browser width to see the layout responsiveness</p>
             </Section>
             <Section area='nv'
-              style={{backgroundColor: '#ab3456'}}>
+              style={{backgroundColor: '#ab789a'}}>
               <H3>Nav</H3>
             </Section>
             <Section area='sb'
-              style={{backgroundColor: '#ab3456'}}>
+              style={{backgroundColor: '#ab789a'}}>
               <H3>Sidebar</H3>
+              <p>Default value is 950px</p>
             </Section>
             <Section area='ct'
-              style={{backgroundColor: '#56ab34'}}>
+              style={{backgroundColor: '#9aab78'}}>
               <H3>Content</H3>
+              <p>Breakpoint variable($page-max-width) can be changed in src/framework/utils/_variables.scss</p>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus sunt, accusantium, harum facere cum reprehenderit assumenda minus quis molestias, reiciendis natus! Cumque corporis dolor temporibus est, nam laboriosam facere laborum.
               Facilis incidunt obcaecati, quos laudantium odit iste explicabo architecto vel, alias quas saepe ab beatae veniam ea molestias maiores cum. Hic voluptas, esse aperiam alias vero, quo. Ipsa natus, odit.
               Voluptates iste atque nobis perspiciatis accusamus sunt dolorum temporibus odio, soluta? Cumque, est. Rem nulla doloremque esse natus, suscipit nam repellat, itaque numquam. Porro necessitatibus sed repellat, a asperiores fuga!</p>
             </Section>
             <Section area='ft'
-              style={{backgroundColor: '#3456ab'}}>
+              style={{backgroundColor: '#789aab'}}>
               <H3>Footer</H3>
             </Section>
           </Layout>

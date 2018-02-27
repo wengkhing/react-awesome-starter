@@ -30,12 +30,12 @@ const PureLayout = (props) => {
     smAreas,
     ...attr } = props
 
-  const gridString = grid.split(',')
-  const smGridString = smGrid ? smGrid.split(',') : null
+  const gridString = grid.split('|')
+  const smGridString = smGrid ? smGrid.split('|') : null
   let gridStyle = {...style}
 
   if (gridString.length !== 2) {
-    console.error('[ReactAwesomeStarter] Layout grid property expect two arguments, \n<Layout grid=\'100px auto 100px, 100px auto\' />\ngrid=\'(rows), (columns)\' ')
+    console.error('[ReactAwesomeStarter] Layout grid property expect two arguments, \n<Layout grid=\'100px auto 100px| 100px auto\' />\ngrid=\'(rows)| (columns)\' ')
   } else {
     gridStyle = {
       ...gridStyle,
@@ -57,7 +57,7 @@ const PureLayout = (props) => {
       }
     }
   } else if (smGridString && smGridString !== 2) {
-    console.error('[ReactAwesomeStarter] Layout smGrid property expect two arguments, \n<Layout smGrid=\'100px auto 100px, 100px auto\' />\nsmGrid=\'(rows), (columns)\' ')
+    console.error('[ReactAwesomeStarter] Layout smGrid property expect two arguments, \n<Layout smGrid=\'100px auto 100px| 100px auto\' />\nsmGrid=\'(rows)| (columns)\' ')
   }
 
   return (

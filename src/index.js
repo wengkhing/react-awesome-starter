@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'react-router-redux'
-import { StyleRoot } from 'radium'
 import configureStore from './store'
 import createHistory from 'history/createBrowserHistory'
 
@@ -18,9 +17,7 @@ export const store = configureStore(history)
 ReactDOM.render(
   <Provider store={store} >
     <ConnectedRouter history={history}>
-      <StyleRoot>
-        <App />
-      </StyleRoot>
+      <App />
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root')
