@@ -26,7 +26,20 @@
     transition: all 0.5s cubic-bezier(.25,.8,.25,1);
   }
 
-  input:focus {
+  textarea:focus, input:focus {
     border: 1px solid rgba(45, 67, 200, 0.5);
+  }
+
+  textarea {
+    display: block;
+    width: 100%;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    padding: plf(1.6) plf(2);
+    resize: none;
+    outline: none;
+    transition: all 0.5s cubic-bezier(.25,.8,.25,1);
   }
 }

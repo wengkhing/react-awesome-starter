@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Helmet } from 'react-helmet'
-import { Page, Section, H1, H2, H3, Button, Input, Loader, MenuBar, MenuItem } from '../../framework'
+import { Page, Section, H1, H2, H3, Breadcrumb, Crumb, Button, Input, Loader, MenuBar, MenuItem } from '../../framework'
 
 import './Sink.scss'
 
@@ -26,6 +26,14 @@ class KitchenSinkPage extends Component {
     return (
       <Page className='scope-kitchen-sink'>
         <Helmet title='React Awesome Starter: Kitchen Sink' />
+        <Section>
+          <H1>Breadcrumbs</H1>
+          <Breadcrumb>
+            <Crumb to='/kitchen/sink'>Home</Crumb>
+            <Crumb to='/kitchen/sink'>Features</Crumb>
+            <Crumb>Kitchen</Crumb>
+          </Breadcrumb>
+        </Section>
         <Section>
           <H1>Buttons</H1>
           <Button>Cancel</Button>
@@ -69,7 +77,9 @@ class KitchenSinkPage extends Component {
           <H1>Input Elements</H1>
           <Input label='Email' placeholder='Email here' />
           <Input label='Password' type='password' placeholder='Password here' />
-          <Input label='Email' placeholder='Email here' disabled />
+          <Input label='Datetime' type='datetime-local' />
+          <Input label='Datetime' type='datetime-local' disabled />
+          <Input label='Comments' type='textarea' rows='4' />
         </Section>
         <Section>
           <H1>Version Checker</H1>

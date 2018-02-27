@@ -1,0 +1,23 @@
+@import '../utils/utility';
+@import '../utils/variables';
+
+.component-breadcrumb {
+  padding: plf(2) 0;
+
+  li.crumb {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+
+    a {
+      color: $primary-color;
+      text-decoration: none;
+    }
+  }
+
+  li.crumb:not(:first-child):before {
+    content: '/';
+    padding: 0 plf(1);
+  }
+}
