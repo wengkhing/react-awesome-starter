@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Helmet } from 'react-helmet'
+import { DELETE_GROUP_MODAL, ERROR_MODAL } from '../../components/ModalWrapper/ModalWrapper'
+import { setModal } from '../../store/actions/app.action'
+
 import {
   Page,
   Layout,
@@ -71,7 +74,8 @@ class KitchenSinkPage extends Component {
         <Section>
           <H1>Buttons</H1>
           <Button>Cancel</Button>
-          <Button to='/auth/login'>Router</Button>
+          <Button to='/auth/login'>Route Button</Button>
+          <Button to='/auth/login' disabled>Disabled Route Button</Button>
           <Button color='primary'>Modify</Button>
           <Button color='success'>Accept</Button>
           <Button color='danger'>Reject</Button>
@@ -142,14 +146,14 @@ class KitchenSinkPage extends Component {
         <Section>
           <H1>Modal</H1>
           <Modal onMount={ref => (this.defaultModal = ref)}>
-            <ModalHeader color='danger'>
+            <ModalHeader color='primary'>
               <H1>Modal Header</H1>
             </ModalHeader>
             <ModalBody>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, quia itaque! Dolorem architecto, porro libero facere facilis ratione expedita obcaecati? Maxime, ratione quis obcaecati! Ad quae voluptates dolor deleniti omnis.</p>
             </ModalBody>
             <ModalFooter>
-              <Button color='danger' onClick={() => this.defaultModal.hide()}>Alright!</Button>
+              <Button color='primary' onClick={() => this.defaultModal.hide()}>Alright!</Button>
               <Button onClick={() => this.defaultModal.hide()}>Close</Button>
             </ModalFooter>
           </Modal>
@@ -168,6 +172,8 @@ class KitchenSinkPage extends Component {
           </Modal>
           <Button onClick={() => this.defaultModal.show()}>Open Default Modal</Button>
           <Button color='primary' onClick={() => this.customModal.show()}>Open Custom Modal</Button>
+          <Button onClick={() => this.props.setModal(DELETE_GROUP_MODAL)}>Redux Modal</Button>
+          <Button color='danger' onClick={() => this.props.setModal(ERROR_MODAL)}>Redux Error Modal</Button>
         </Section>
         <Section>
           <H1>Menu Bar</H1>
@@ -203,14 +209,8 @@ class KitchenSinkPage extends Component {
   }
 }
 
-function mapStateToProps (state) {
-  return {
-    state
-  }
-}
-
 function mapDispatchToProps (dispatch) {
-  return bindActionCreators({}, dispatch)
+  return bindActionCreators({ setModal }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(KitchenSinkPage)
+export default connect(null, mapDispatchToProps)(KitchenSinkPage)

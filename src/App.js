@@ -10,6 +10,7 @@ import { renderRoutes } from './helpers/render-routes'
 import { appRoutes } from './App.routes'
 import LoadWrapper from './components/LoadWrapper'
 import ModalWrapper from './components/ModalWrapper'
+import { Page } from './framework'
 
 import 'font-awesome/css/font-awesome.min.css'
 import './App.scss'
@@ -18,8 +19,8 @@ class App extends Component {
   render () {
     return (
       <StyleRoot>
-        <ModalWrapper />
-        <div className='scope-app'>
+        <Page className='scope-app'>
+          <ModalWrapper />
           <LoadWrapper />
           <Helmet title='Meetup Buzzer' />
           <Switch>
@@ -29,7 +30,7 @@ class App extends Component {
             )} />
             {renderRoutes(appRoutes)}
           </Switch>
-        </div>
+        </Page>
       </StyleRoot>
     )
   }

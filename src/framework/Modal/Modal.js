@@ -29,7 +29,11 @@ export class Modal extends Component {
   }
 
   hide () {
+    const { onHide } = this.props
     document.body.style.overflow = ''
+    if (onHide && typeof onHide === 'function') {
+      onHide()
+    }
     this.setState({isOpen: false})
   }
 
@@ -47,12 +51,13 @@ export class Modal extends Component {
   }
 
   renderModal () {
+    const { normal } = this.props
     const { isOpen } = this.state
     if (isOpen) {
       return (
         <div className='modal-wrapper'>
           <div className='overlay' onClick={this.hide} />
-          <div className={`modal ${this.isCustomLayout() ? '--padded' : ''}`}>
+          <div className={`modal ${normal || !this.isCustomLayout() ? '' : '--padded'}`}>
             {this.props.children}
           </div>
         </div>
