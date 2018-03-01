@@ -14,6 +14,10 @@ import {
   Button,
   Input,
   Loader,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
   MenuBar,
   MenuItem,
   Table
@@ -49,9 +53,7 @@ class KitchenSinkPage extends Component {
   }
 
   updateLoadingState () {
-    this.setState({
-      isLoading: !this.state.isLoading
-    })
+    this.setState({isLoading: !this.state.isLoading})
   }
 
   render () {
@@ -86,13 +88,13 @@ class KitchenSinkPage extends Component {
         <Section>
           <H1>Layout</H1>
           <Layout
-            grid='auto auto auto | minmax(100px, 200px) auto minmax(100px, 200px)'
+            grid='minmax(100px, 200px) auto minmax(100px, 200px) | auto auto auto '
             gap='5px 10px'
-            areas={`
+            areas='
             "hd hd hd"
             "nv ct sb"
-            "ft ft ft"`}
-            smGrid='auto | auto auto'
+            "ft ft ft"'
+            smGrid='auto auto | auto'
             smAreas='
             "hd hd"
             "nv sb"
@@ -136,6 +138,36 @@ class KitchenSinkPage extends Component {
             value={this.state.isLoading}
             onChange={this.updateLoadingState} />
           <p>(See loading bar at top)</p>
+        </Section>
+        <Section>
+          <H1>Modal</H1>
+          <Modal onMount={ref => (this.defaultModal = ref)}>
+            <ModalHeader color='danger'>
+              <H1>Modal Header</H1>
+            </ModalHeader>
+            <ModalBody>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, quia itaque! Dolorem architecto, porro libero facere facilis ratione expedita obcaecati? Maxime, ratione quis obcaecati! Ad quae voluptates dolor deleniti omnis.</p>
+            </ModalBody>
+            <ModalFooter>
+              <Button color='danger' onClick={() => this.defaultModal.hide()}>Alright!</Button>
+              <Button onClick={() => this.defaultModal.hide()}>Close</Button>
+            </ModalFooter>
+          </Modal>
+          <Modal onMount={ref => (this.customModal = ref)}>
+            <H1>Custom Modal</H1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, quia itaque! Dolorem architecto, porro libero facere facilis ratione expedita obcaecati? Maxime, ratione quis obcaecati! Ad quae voluptates dolor deleniti omnis.
+              Temporibus officia illo veritatis quaerat culpa. Adipisci, voluptas, cupiditate? Minima delectus, quis fugit eius at aperiam dicta iure cupiditate mollitia, asperiores dolores sunt! Repudiandae qui, dolore adipisci provident, a minima.
+              Perspiciatis iste fugit harum est magni suscipit? Eaque id perspiciatis ratione quod dicta ipsam deleniti quibusdam rerum esse possimus officia temporibus, itaque voluptates modi animi, nisi repellendus rem dolore hic!
+              Mollitia recusandae repellendus, fuga! Rem consectetur deleniti sunt laudantium nihil perspiciatis, dolores repellendus sed, porro quis expedita harum doloremque. Consectetur eum culpa ipsa ut officiis, alias totam minus fugiat iste.
+              Veritatis aperiam incidunt officiis? Porro architecto, cum et nobis. Tenetur provident sit, nulla aspernatur! Temporibus maiores ducimus, debitis laudantium quis consequatur, nam placeat dolorem reprehenderit fugit unde ipsum similique libero.
+              Esse velit, nihil possimus maiores cupiditate, illo error ut. Repudiandae corporis, porro iure assumenda, nihil fugit temporibus vitae dolorem atque maxime reprehenderit recusandae quia eius fuga, at velit beatae vel.
+              Dignissimos ut optio suscipit quasi nisi reiciendis, quos fuga assumenda ex veniam esse tempore nihil, perferendis mollitia. Numquam id modi, ex temporibus minima autem, quis explicabo nihil tempore quae maiores?
+              Similique nulla illum sit facere necessitatibus deleniti consequuntur nemo autem sunt? Veniam voluptates vitae, optio vero tenetur labore! Saepe nisi non assumenda ad sit, iure dolores, quae in quidem commodi!
+              Vitae perspiciatis a debitis dicta. Repellat excepturi delectus magnam ea eveniet minus quidem cupiditate sit distinctio sequi, impedit rem corporis? Id modi aspernatur laborum fuga accusamus officiis doloremque, eos nostrum.
+              At, suscipit eos, harum eum ipsum placeat commodi quia sint cum nisi fugit sunt. Odio error impedit, consequuntur excepturi voluptates! Aliquam, aliquid nulla eligendi in voluptatum ipsa porro fugiat obcaecati.</p>
+          </Modal>
+          <Button onClick={() => this.defaultModal.show()}>Open Default Modal</Button>
+          <Button color='primary' onClick={() => this.customModal.show()}>Open Custom Modal</Button>
         </Section>
         <Section>
           <H1>Menu Bar</H1>

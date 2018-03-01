@@ -1,0 +1,69 @@
+@import '../utils/utility';
+@import '../utils/variables';
+@import '../utils/shadow';
+
+.af-modal-module {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  .modal-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    min-width: 100vw;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 100;
+  }
+
+  .modal {
+    background-color: #fff;
+    margin: 0 mlf(8);
+    max-width: $page-max-width - plf(24);
+    @include shadow(1);
+    z-index: 200;
+
+    &.--padded {
+      padding: plf(5.5);
+      overflow-y: auto;
+      max-height: calc(70vh - #{plf(5)});
+    }
+
+    .__header {
+      padding: plf(4);
+      color: #fff;
+      background-color: $primary-color;
+
+      &.--success {
+        background-color: $success-color;
+      }
+
+      &.--danger {
+        background-color: $danger-color;
+      }
+    }
+
+    .__body {
+      padding: plf(4);
+      overflow-y: auto;
+      max-height: calc(70vh - #{plf(24)});
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .__footer {
+      padding: 0 plf(4) plf(2) plf(4);
+    }
+  }
+}

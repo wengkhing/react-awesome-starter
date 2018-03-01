@@ -2,6 +2,7 @@
 @import '../utils/variables';
 
 .af-page {
+  position: relative;
   max-width: $page-max-width;
   margin: mlf(2) auto;
 

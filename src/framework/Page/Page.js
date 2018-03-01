@@ -39,8 +39,8 @@ const PureLayout = (props) => {
   } else {
     gridStyle = {
       ...gridStyle,
-      gridTemplateRows: gridString[0].trim(),
-      gridTemplateColumns: gridString[1].trim(),
+      gridTemplateColumns: gridString[0].trim(),
+      gridTemplateRows: gridString[1].trim(),
       gridTemplateAreas: areas,
       gridGap: gap
     }
@@ -50,8 +50,8 @@ const PureLayout = (props) => {
     gridStyle = {
       ...gridStyle,
       [mediaQuery]: {
-        gridTemplateRows: smGridString[0].trim(),
-        gridTemplateColumns: smGridString[1].trim(),
+        gridTemplateColumns: smGridString[0].trim(),
+        gridTemplateRows: smGridString[1].trim(),
         gridTemplateAreas: smAreas,
         gridGap: smGap
       }
