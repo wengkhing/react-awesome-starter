@@ -51,13 +51,13 @@ export class Modal extends Component {
   }
 
   renderModal () {
-    const { normal } = this.props
+    const { forceNormalLayout } = this.props
     const { isOpen } = this.state
     if (isOpen) {
       return (
         <div className='modal-wrapper'>
           <div className='overlay' onClick={this.hide} />
-          <div className={`modal ${normal || !this.isCustomLayout() ? '' : '--padded'}`}>
+          <div className={`modal ${forceNormalLayout || !this.isCustomLayout() ? '' : '--padded'}`}>
             {this.props.children}
           </div>
         </div>

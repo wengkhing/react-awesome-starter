@@ -28,7 +28,7 @@ class ModalWrapper extends Component {
     return (
       <Modal onMount={ref => (this.modal = ref)}
         onHide={() => { this.props.setModal(null) }}
-        normal>
+        forceNormalLayout>
         {this.renderModal()}
       </Modal>
     )
