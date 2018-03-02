@@ -51,7 +51,7 @@ function endLoading (key) {
     })
   } else {
     store.dispatch({
-      type: END_INT_LOADING,
+      type: END_INT_LOADING
     })
   }
 }
