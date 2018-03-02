@@ -19,7 +19,7 @@ export const Input = (props) => {
     default:
       return (
         <div className='component-input-element'>
-          <label>{label}</label>
+          {label ? <label>{label}</label> : ''}
           {type === 'textarea'
             ? <textarea {...attr}>{value}</textarea>
             : <input type={type} value={value} {...attr} />}

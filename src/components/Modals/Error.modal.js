@@ -1,16 +1,18 @@
 import React, { Component } from 'react'
-import { H3, ModalHeader, ModalBody, ModalFooter, Button } from '../../framework'
+import { connect } from 'react-redux'
+import { H3, P, Code, ModalHeader, ModalBody, ModalFooter, Button } from '../../framework'
 
 class ErrorModal extends Component {
   render () {
-    const { modal } = this.props
+    const { modal, error } = this.props
     return (
       <div>
         <ModalHeader color='danger'>
           <H3>Hmmm... Something went wrong</H3>
         </ModalHeader>
         <ModalBody>
-          <p>You possibly found a bug in the application.</p>
+          <P>It's a shame. Help us improve our service. Report a bug today.</P>
+          <Code>{error}</Code>
         </ModalBody>
         <ModalFooter>
           <Button color='danger'>Send Report to Support</Button>
@@ -21,4 +23,10 @@ class ErrorModal extends Component {
   }
 }
 
-export default ErrorModal
+function mapStatetoProps ({ app }) {
+  return {
+    error: app.error
+  }
+}
+
+export default connect(mapStatetoProps)(ErrorModal)

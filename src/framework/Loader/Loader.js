@@ -17,7 +17,7 @@ export class Loader extends Component {
       this.loader = new ProgressBar.Line(
         '.component-loader',
         { color, trailColor, strokeWidth })
-      this.loader.animate(1, { duration })
+      this.loader.animate(0.9, { duration })
     } else {
       if (this.loader) {
         setTimeout(() => {

@@ -1,6 +1,19 @@
 @import '../utils/utility';
 @import '../utils/variables';
 
+h1.af-page-header { font-size: 1.6em; }
+h2.af-page-header { font-size: 1.3em; font-weight: 400 !important; }
+h3.af-page-header { font-size: 0.8em; letter-spacing: 2px !important; }
+p.af-paragraph { margin-bottom: mlf(2); line-height: 1.4; }
+
+.af-page-header {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: mlf(2.5);
+  margin-bottom: mlf(1);
+}
+
 .af-page {
   position: relative;
   max-width: $page-max-width;
@@ -10,19 +23,6 @@
     & {
       margin: mlf(2) mlf(2.5);
     }
-  }
-
-  h1 { font-size: 1.6em; }
-  h2 { font-size: 1.3em; font-weight: 400 !important; }
-  h3 { font-size: 0.8em; letter-spacing: 2px !important; }
-  p { margin-bottom: mlf(2); line-height: 1.4; }
-
-  .af-page-header {
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: mlf(2.5);
-    margin-bottom: mlf(1);
   }
 
   section.af-page-section {
@@ -40,4 +40,13 @@
   section.af-page-section {
     padding: plf(3) plf(3);
   }
+}
+
+.af-code {
+  font-family: monospace;
+  font-size: 15px;
+  display: block;
+  padding: plf(3);
+  line-height: 1.55;
+  background-color: #e8e8e8;
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { H3, ModalHeader, ModalBody, ModalFooter, Button } from '../../framework'
+import { H3, P, ModalHeader, ModalBody, ModalFooter, Button } from '../../framework'
 
 class DeleteGroupModal extends Component {
   render () {
@@ -10,7 +10,7 @@ class DeleteGroupModal extends Component {
           <H3>Warning: This is an irreversible process</H3>
         </ModalHeader>
         <ModalBody>
-          <p>Are you sure you want to permanently delete this group?</p>
+          <P>Are you sure you want to permanently delete this group?</P>
         </ModalBody>
         <ModalFooter>
           <Button color='danger'>Yes Delete!</Button>

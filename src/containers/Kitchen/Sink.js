@@ -12,11 +12,14 @@ import {
   H1,
   H2,
   H3,
+  P,
+  Code,
   Breadcrumb,
   Crumb,
   Button,
   Input,
   Loader,
+  InterruptiveLoader,
   Modal,
   ModalHeader,
   ModalBody,
@@ -49,14 +52,23 @@ class KitchenSinkPage extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      isLoading: false
+      isLoading: false,
+      isInterruptLoading: false
     }
 
     this.updateLoadingState = this.updateLoadingState.bind(this)
+    this.startLoader = this.startLoader.bind(this)
   }
 
   updateLoadingState () {
     this.setState({isLoading: !this.state.isLoading})
+  }
+
+  startLoader () {
+    this.setState({ isInterruptLoading: true })
+    setTimeout(() => {
+      this.setState({ isInterruptLoading: false })
+    }, 2500)
   }
 
   render () {
@@ -73,21 +85,30 @@ class KitchenSinkPage extends Component {
         </Section>
         <Section>
           <H1>Buttons</H1>
+          <H2>Normal Buttons</H2>
           <Button>Cancel</Button>
-          <Button to='/auth/login'>Route Button</Button>
-          <Button to='/auth/login' disabled>Disabled Route Button</Button>
           <Button color='primary'>Modify</Button>
           <Button color='success'>Accept</Button>
           <Button color='danger'>Reject</Button>
           <Button className='btn' disabled>Disabled</Button>
-          <Button color='danger' block>Block Button</Button>
+          <H2>Route Buttons</H2>
+          <Button to='/auth/login'>Route Button</Button>
+          <Button to='/auth/login' disabled>Disabled Route Button</Button>
+          <H2>Block Buttons</H2>
+          <Button color='primary' block>Get my free samples</Button>
+          <Button color='danger' block>I agree to all the terms</Button>
         </Section>
         <Section>
           <H1>Fonts</H1>
           <H2>Header 2</H2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit nihil voluptatem quos nulla sed repudiandae, inventore totam atque harum esse, officiis placeat et quidem minima id nemo ducimus aut distinctio.</p>
+          <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit nihil voluptatem quos nulla sed repudiandae, inventore totam atque harum esse, officiis placeat et quidem minima id nemo ducimus aut distinctio.</P>
           <H3>Header 3</H3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam maiores, similique fugiat vitae, reprehenderit veritatis sit, a explicabo temporibus officiis ipsum sint quam fugit quaerat voluptatibus dolorem quos blanditiis recusandae. Quam nisi, laudantium perspiciatis adipisci dicta, eos repellendus quos, ipsum aliquam minima quas iste iure voluptatum suscipit! Nostrum similique voluptatibus, reiciendis, ullam deserunt omnis perspiciatis cum molestiae dignissimos aperiam sunt! Praesentium fugiat exercitationem, in accusamus, ea alias. A, provident quasi quisquam aspernatur cumque. Ipsam ipsa eligendi, aspernatur odio reprehenderit consectetur placeat ut doloribus maiores ullam, dolore iusto. Autem earum, ut?</p>
+          <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam maiores, similique fugiat vitae, reprehenderit veritatis sit, a explicabo temporibus officiis ipsum sint quam fugit quaerat voluptatibus dolorem quos blanditiis recusandae. Quam nisi, laudantium perspiciatis adipisci dicta, eos repellendus quos, ipsum aliquam minima quas iste iure voluptatum suscipit! Nostrum similique voluptatibus, reiciendis, ullam deserunt omnis perspiciatis cum molestiae dignissimos aperiam sunt! Praesentium fugiat exercitationem, in accusamus, ea alias. A, provident quasi quisquam aspernatur cumque. Ipsam ipsa eligendi, aspernatur odio reprehenderit consectetur placeat ut doloribus maiores ullam, dolore iusto. Autem earum, ut?</P>
+          <Code>
+            console.log('hello world')<br />
+            printf('awesome!')<br />
+            if (this) sum += 1
+          </Code>
         </Section>
         <Section>
           <H1>Layout</H1>
@@ -107,7 +128,7 @@ class KitchenSinkPage extends Component {
             <Section area='hd'
               style={{backgroundColor: '#789aab'}}>
               <H2>Header</H2>
-              <p>Play with the browser width to see the layout responsiveness</p>
+              <P>Play with the browser width to see the layout responsiveness</P>
             </Section>
             <Section area='nv'
               style={{backgroundColor: '#ab789a'}}>
@@ -116,15 +137,15 @@ class KitchenSinkPage extends Component {
             <Section area='sb'
               style={{backgroundColor: '#ab789a'}}>
               <H3>Sidebar</H3>
-              <p>Default value is 950px</p>
+              <P>Default value is 950px</P>
             </Section>
             <Section area='ct'
               style={{backgroundColor: '#9aab78'}}>
               <H3>Content</H3>
-              <p>Breakpoint variable($page-max-width) can be changed in src/framework/utils/_variables.scss</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus sunt, accusantium, harum facere cum reprehenderit assumenda minus quis molestias, reiciendis natus! Cumque corporis dolor temporibus est, nam laboriosam facere laborum.
+              <P>Breakpoint variable($page-max-width) can be changed in src/framework/utils/_variables.scss</P>
+              <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus sunt, accusantium, harum facere cum reprehenderit assumenda minus quis molestias, reiciendis natus! Cumque corporis dolor temporibus est, nam laboriosam facere laborum.
               Facilis incidunt obcaecati, quos laudantium odit iste explicabo architecto vel, alias quas saepe ab beatae veniam ea molestias maiores cum. Hic voluptas, esse aperiam alias vero, quo. Ipsa natus, odit.
-              Voluptates iste atque nobis perspiciatis accusamus sunt dolorum temporibus odio, soluta? Cumque, est. Rem nulla doloremque esse natus, suscipit nam repellat, itaque numquam. Porro necessitatibus sed repellat, a asperiores fuga!</p>
+              Voluptates iste atque nobis perspiciatis accusamus sunt dolorum temporibus odio, soluta? Cumque, est. Rem nulla doloremque esse natus, suscipit nam repellat, itaque numquam. Porro necessitatibus sed repellat, a asperiores fuga!</P>
             </Section>
             <Section area='ft'
               style={{backgroundColor: '#789aab'}}>
@@ -141,7 +162,12 @@ class KitchenSinkPage extends Component {
           <Input label='is loading' type='checkbox'
             value={this.state.isLoading}
             onChange={this.updateLoadingState} />
-          <p>(See loading bar at top)</p>
+          <P>(See loading bar at top)</P>
+        </Section>
+        <Section>
+          <H1>Interruptive Loader</H1>
+          <InterruptiveLoader isLoading={this.state.isInterruptLoading} />
+          <Button color='primary' onClick={this.startLoader}>Start Loading</Button>
         </Section>
         <Section>
           <H1>Modal</H1>
@@ -150,7 +176,7 @@ class KitchenSinkPage extends Component {
               <H1>Modal Header</H1>
             </ModalHeader>
             <ModalBody>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, quia itaque! Dolorem architecto, porro libero facere facilis ratione expedita obcaecati? Maxime, ratione quis obcaecati! Ad quae voluptates dolor deleniti omnis.</p>
+              <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, quia itaque! Dolorem architecto, porro libero facere facilis ratione expedita obcaecati? Maxime, ratione quis obcaecati! Ad quae voluptates dolor deleniti omnis.</P>
             </ModalBody>
             <ModalFooter>
               <Button color='primary' onClick={() => this.defaultModal.hide()}>Alright!</Button>
@@ -159,7 +185,7 @@ class KitchenSinkPage extends Component {
           </Modal>
           <Modal onMount={ref => (this.customModal = ref)}>
             <H1>Custom Modal</H1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, quia itaque! Dolorem architecto, porro libero facere facilis ratione expedita obcaecati? Maxime, ratione quis obcaecati! Ad quae voluptates dolor deleniti omnis.
+            <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, quia itaque! Dolorem architecto, porro libero facere facilis ratione expedita obcaecati? Maxime, ratione quis obcaecati! Ad quae voluptates dolor deleniti omnis.
               Temporibus officia illo veritatis quaerat culpa. Adipisci, voluptas, cupiditate? Minima delectus, quis fugit eius at aperiam dicta iure cupiditate mollitia, asperiores dolores sunt! Repudiandae qui, dolore adipisci provident, a minima.
               Perspiciatis iste fugit harum est magni suscipit? Eaque id perspiciatis ratione quod dicta ipsam deleniti quibusdam rerum esse possimus officia temporibus, itaque voluptates modi animi, nisi repellendus rem dolore hic!
               Mollitia recusandae repellendus, fuga! Rem consectetur deleniti sunt laudantium nihil perspiciatis, dolores repellendus sed, porro quis expedita harum doloremque. Consectetur eum culpa ipsa ut officiis, alias totam minus fugiat iste.
@@ -168,7 +194,7 @@ class KitchenSinkPage extends Component {
               Dignissimos ut optio suscipit quasi nisi reiciendis, quos fuga assumenda ex veniam esse tempore nihil, perferendis mollitia. Numquam id modi, ex temporibus minima autem, quis explicabo nihil tempore quae maiores?
               Similique nulla illum sit facere necessitatibus deleniti consequuntur nemo autem sunt? Veniam voluptates vitae, optio vero tenetur labore! Saepe nisi non assumenda ad sit, iure dolores, quae in quidem commodi!
               Vitae perspiciatis a debitis dicta. Repellat excepturi delectus magnam ea eveniet minus quidem cupiditate sit distinctio sequi, impedit rem corporis? Id modi aspernatur laborum fuga accusamus officiis doloremque, eos nostrum.
-              At, suscipit eos, harum eum ipsum placeat commodi quia sint cum nisi fugit sunt. Odio error impedit, consequuntur excepturi voluptates! Aliquam, aliquid nulla eligendi in voluptatum ipsa porro fugiat obcaecati.</p>
+              At, suscipit eos, harum eum ipsum placeat commodi quia sint cum nisi fugit sunt. Odio error impedit, consequuntur excepturi voluptates! Aliquam, aliquid nulla eligendi in voluptatum ipsa porro fugiat obcaecati.</P>
           </Modal>
           <Button onClick={() => this.defaultModal.show()}>Open Default Modal</Button>
           <Button color='primary' onClick={() => this.customModal.show()}>Open Custom Modal</Button>
@@ -181,7 +207,7 @@ class KitchenSinkPage extends Component {
             <MenuItem to='/manage/group/overview' icon='tachometer'>Groups</MenuItem>
             <MenuItem icon='sign-out'>Logout</MenuItem>
           </MenuBar>
-          <p>(See top)</p>
+          <P>(See top)</P>
         </Section>
         <Section>
           <H1>Input Elements</H1>
@@ -192,6 +218,7 @@ class KitchenSinkPage extends Component {
           <Input label='Female' type='radio' name='gender' />
           <Input label='Datetime' type='datetime-local' />
           <Input label='Number' type='number' />
+          <Input placeholder='No label input' />
           <Input label='Disabled' disabled />
           <Input label='Comments' type='textarea' rows='4' />
         </Section>
@@ -202,7 +229,7 @@ class KitchenSinkPage extends Component {
         </Section>
         <Section>
           <H1>Version Checker</H1>
-          <p>Check if app version match with package version</p>
+          <P>Check if app version match with package version</P>
         </Section>
       </Page>
     )

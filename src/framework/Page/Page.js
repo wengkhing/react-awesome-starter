@@ -120,3 +120,23 @@ export const H3 = (props) => {
     </h3>
   )
 }
+
+export const P = (props) => {
+  const { className = '', children, ...attr } = props
+  return (
+    <p className={`af-paragraph ${className}`}
+      {...attr} >
+      {children}
+    </p>
+  )
+}
+
+export const Code = (props) => {
+  const { className = '', children, ...attr } = props
+  return (
+    <code className={`af-code ${className}`}
+      {...attr} >
+      {children}
+    </code>
+  )
+}

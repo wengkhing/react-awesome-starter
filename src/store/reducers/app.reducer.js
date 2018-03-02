@@ -1,3 +1,4 @@
+import { ERROR_MODAL } from '../../components/ModalWrapper/ModalWrapper'
 // ActionTypes
 export const SET_AUTH = '[APP] Set Auth'
 export const START_LOADING = '[APP] Start Loading'
@@ -8,9 +9,9 @@ export const DO_NOTHING = '[APP] Do Nothing'
 
 const initialState = {
   auth: false,
-  isLoading: false,
+  loadStack: [],
   loaderMessage: 'Loading..',
-  isModalOpen: false,
+  isInterruptiveLoading: false,
   modal: null,
   error: null
 }
@@ -33,6 +34,7 @@ export default function (state = initialState, action) {
     case UPDATE_ERROR:
       return { ...state,
         isLoading: false,
+        modal: ERROR_MODAL,
         error: action.payload }
     case DO_NOTHING:
     default:
