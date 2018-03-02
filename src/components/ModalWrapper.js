@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { Modal } from '../../framework/'
-import { setModal } from '../../store/actions/app.action'
+import { Modal } from '../framework/'
+import { setModal } from '../store/actions/app.action'
 
-import DeleteGroupModal from '../Modals/DeleteGroup.modal'
-import ErrorModal from '../Modals/Error.modal'
+import DeleteGroupModal from './Modals/DeleteGroup.modal'
+import ErrorModal from './Modals/Error.modal'
 
 export const DELETE_GROUP_MODAL = 'DELETE GROUP'
 export const ERROR_MODAL = 'ERROR'

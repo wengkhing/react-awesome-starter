@@ -9,6 +9,7 @@ import { StyleRoot } from 'radium'
 import { renderRoutes } from './helpers/render-routes'
 import { appRoutes } from './App.routes'
 import LoadWrapper from './components/LoadWrapper'
+import InterruptiveLoadWrapper from './components/InterruptiveLoadWrapper'
 import ModalWrapper from './components/ModalWrapper'
 
 import 'font-awesome/css/font-awesome.min.css'
@@ -21,6 +22,7 @@ class App extends Component {
         <div className='scope-app'>
           <ModalWrapper />
           <LoadWrapper />
+          <InterruptiveLoadWrapper />
           <Helmet title='Meetup Buzzer' />
           <Switch>
             <Route path='/' exact
