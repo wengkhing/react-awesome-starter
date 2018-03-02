@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { ERROR_MODAL } from '../../components/ModalWrapper/ModalWrapper'
+import { ERROR_MODAL } from '../../components/ModalWrapper'
 // ActionTypes
 export const SET_AUTH = '[APP] Set Auth'
 export const START_INT_LOADING = '[APP] Start Interruptive Loading'

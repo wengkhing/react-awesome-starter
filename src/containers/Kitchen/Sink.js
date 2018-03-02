@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Helmet } from 'react-helmet'
-import { DELETE_GROUP_MODAL, ERROR_MODAL } from '../../components/ModalWrapper/ModalWrapper'
+import { DELETE_GROUP_MODAL, ERROR_MODAL } from '../../components/ModalWrapper'
 import { setModal } from '../../store/actions/app.action'
 
 import {
