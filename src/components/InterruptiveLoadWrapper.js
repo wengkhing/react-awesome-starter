@@ -4,14 +4,16 @@ import { InterruptiveLoader } from '../framework'
 
 class InterruptiveLoadWrapper extends Component {
   render () {
-    return <InterruptiveLoader {...this.props} />
+    const { loadStack } = this.props
+    return <InterruptiveLoader
+      isLoading={loadStack && loadStack.length > 0}
+      message={loadStack[0]} />
   }
 }
 
 function mapStatetoProps ({ app }) {
   return {
-    isLoading: app.isInterruptiveLoading,
-    message: app.loaderMessage
+    loadStack: app.intLoadStack
   }
 }
 

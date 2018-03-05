@@ -12,31 +12,30 @@ export const DO_NOTHING = '[APP] Do Nothing'
 const initialState = {
   auth: false,
   loadStack: [],
-  loaderMessage: 'Loading..',
-  isInterruptiveLoading: false,
+  intLoadStack: [],
   modal: null,
   error: null
 }
 
 export default function (state = initialState, action) {
   const { payload, type } = action
+  let updatedStack
   switch (type) {
     case SET_AUTH:
       return { ...state,
         auth: payload }
     case START_INT_LOADING:
       return { ...state,
-        isInterruptiveLoading: true,
-        loaderMessage: payload }
+        intLoadStack: [...state.intLoadStack, payload] }
     case END_INT_LOADING:
+      updatedStack = state.intLoadStack.filter(item => item !== payload)
       return { ...state,
-        isInterruptiveLoading: false,
-        loaderMessage: payload }
+        intLoadStack: updatedStack }
     case START_STACK_LOADING:
       return { ...state,
         loadStack: [...state.loadStack, payload] }
     case END_STACK_LOADING:
-      const updatedStack = state.loadStack.filter(item => item !== payload)
+      updatedStack = state.loadStack.filter(item => item !== payload)
       return { ...state,
         loadStack: updatedStack }
     case SET_MODAL:
@@ -44,7 +43,6 @@ export default function (state = initialState, action) {
         modal: payload }
     case UPDATE_ERROR:
       return { ...state,
-        isInterruptiveLoading: false,
         modal: ERROR_MODAL,
         error: payload }
     case DO_NOTHING:
