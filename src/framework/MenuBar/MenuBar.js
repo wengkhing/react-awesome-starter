@@ -5,18 +5,10 @@ import { Link } from 'react-router-dom'
 import './MenuBar.scss'
 
 const sidebarTransition = {
-  exited: {
-    transform: 'translateX(-88vw)'
-  },
-  exiting: {
-    transform: 'translateX(-88vw)'
-  },
-  entering: {
-    transform: 'translateX(-88vw)'
-  },
-  entered: {
-    transform: 'translateX(0)'
-  }
+  exited: { transform: 'translateX(-88vw)' },
+  exiting: { transform: 'translateX(-88vw)' },
+  entering: { transform: 'translateX(-88vw)' },
+  entered: { transform: 'translateX(0)' }
 }
 
 const overlayTransition = {

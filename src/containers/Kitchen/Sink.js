@@ -131,12 +131,12 @@ class KitchenSinkPage extends Component {
             type='datepicker'
             selected={this.state.date}
             onChange={this.handleDateChange}
-            todayButton={"Select today"}
+            todayButton={'Select today'}
             minDate={moment()}
-            maxDate={moment().add(12, "months")}
+            maxDate={moment().add(12, 'months')}
             showTimeSelect
-            timeFormat="HH:mm"
-            dateFormat="LLL"
+            timeFormat='HH:mm'
+            dateFormat='LLL'
             showYearDropdown
             showMonthDropdown
             timeIntervals={30} />

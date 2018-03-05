@@ -1,7 +1,34 @@
 import React, { Component } from 'react'
+import { Transition } from 'react-transition-group'
 import _ from 'lodash'
 
 import './Modal.scss'
+
+const modalTransition = {
+  exited: {
+    transform: 'translateY(-22px)',
+    opacity: 0
+  },
+  exiting: {
+    transform: 'translateY(-22px)',
+    opacity: 0
+  },
+  entering: {
+    transform: 'translateY(-22px)',
+    opacity: 0
+  },
+  entered: {
+    transform: 'translateY(0)',
+    opacity: 1
+  }
+}
+
+const overlayTransition = {
+  exited: { opacity: 0 },
+  exiting: { opacity: 0 },
+  entering: { opacity: 0 },
+  entered: { opacity: 1 }
+}
 
 export class Modal extends Component {
   constructor (props) {
@@ -53,16 +80,25 @@ export class Modal extends Component {
   renderModal () {
     const { forceNormalLayout } = this.props
     const { isOpen } = this.state
-    if (isOpen) {
-      return (
-        <div className='modal-wrapper'>
-          <div className='overlay' onClick={this.hide} />
-          <div className={`modal ${forceNormalLayout || !this.isCustomLayout() ? '' : '--padded'}`}>
-            {this.props.children}
+    return (
+      <Transition in={isOpen}
+        timeout={{ enter: 0, exit: 400 }}
+        appear
+        unmountOnExit>
+        {(state) => (
+          <div className='modal-wrapper'>
+            <div style={{ ...overlayTransition[state] }}
+              className='overlay'
+              onClick={this.hide} />
+            <div className={`modal ${forceNormalLayout || !this.isCustomLayout() ? '' : '--padded'}`}
+              style={{ ...modalTransition[state] }}>
+              {this.props.children}
+            </div>
           </div>
-        </div>
-      )
-    }
+        )}
+      </Transition>
+
+    )
   }
 
   render () {

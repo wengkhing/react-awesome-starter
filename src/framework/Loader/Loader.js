@@ -38,10 +38,7 @@ export class Loader extends Component {
       isLoading = false
     } = nextProps
 
-    console.log(this.timeout)
-
     if (this.timeout) clearTimeout(this.timeout)
-
     if (isLoading) {
       this.showLoader()
       this.loader.animate(0.9, { duration })
