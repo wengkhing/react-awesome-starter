@@ -1,0 +1,25 @@
+@import '../utils/utility';
+@import '../utils/variables';
+
+.af-tag {
+  display: inline-block;
+  font-size: 12px;
+  padding: plf(1) plf(1.5);
+  margin: mlf(0.5);
+  background-color: buttonface;
+
+  &.--primary {
+    color:#fff;
+    background-color: $primary-color;
+  }
+
+  &.--success {
+    color:#fff;
+    background-color: $success-color;
+  }
+
+  &.--danger {
+    color:#fff;
+    background-color: $danger-color;
+  }
+}

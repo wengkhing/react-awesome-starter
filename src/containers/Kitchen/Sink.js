@@ -26,7 +26,8 @@ import {
   ModalFooter,
   MenuBar,
   MenuItem,
-  Table
+  Table,
+  Tag
 } from '../../framework'
 
 import './Sink.scss'
@@ -76,6 +77,9 @@ class KitchenSinkPage extends Component {
       <Page className='scope-kitchen-sink'>
         <Helmet title='React Awesome Starter: Kitchen Sink' />
         <Section>
+          <p>This document is written in alphabatical order of components</p>
+        </Section>
+        <Section>
           <H1>Breadcrumbs</H1>
           <Breadcrumb>
             <Crumb to='/kitchen/sink'>Home</Crumb>
@@ -109,6 +113,24 @@ class KitchenSinkPage extends Component {
             printf('awesome!')<br />
             if (this) sum += 1
           </Code>
+        </Section>
+        <Section>
+          <H1>Input Elements</H1>
+          <Input label='Email' placeholder='Email here' />
+          <Input label='Password' type='password' placeholder='Password here' />
+          <Input label='Paid?' type='checkbox' />
+          <Input label='Male' type='radio' name='gender' />
+          <Input label='Female' type='radio' name='gender' />
+          <Input label='Datetime' type='datetime-local' />
+          <Input label='Number' type='number' />
+          <Input placeholder='No label input' />
+          <Input label='Disabled' disabled />
+          <Input label='Comments' type='textarea' rows='4' />
+        </Section>
+        <Section>
+          <H1>Interruptive Loader</H1>
+          <InterruptiveLoader isLoading={this.state.isInterruptLoading} />
+          <Button color='primary' onClick={this.startLoader}>Start Loading</Button>
         </Section>
         <Section>
           <H1>Layout</H1>
@@ -165,11 +187,6 @@ class KitchenSinkPage extends Component {
           <P>(See loading bar at top)</P>
         </Section>
         <Section>
-          <H1>Interruptive Loader</H1>
-          <InterruptiveLoader isLoading={this.state.isInterruptLoading} />
-          <Button color='primary' onClick={this.startLoader}>Start Loading</Button>
-        </Section>
-        <Section>
           <H1>Modal</H1>
           <Modal onMount={ref => (this.defaultModal = ref)}>
             <ModalHeader color='primary'>
@@ -210,22 +227,25 @@ class KitchenSinkPage extends Component {
           <P>(See top)</P>
         </Section>
         <Section>
-          <H1>Input Elements</H1>
-          <Input label='Email' placeholder='Email here' />
-          <Input label='Password' type='password' placeholder='Password here' />
-          <Input label='Paid?' type='checkbox' />
-          <Input label='Male' type='radio' name='gender' />
-          <Input label='Female' type='radio' name='gender' />
-          <Input label='Datetime' type='datetime-local' />
-          <Input label='Number' type='number' />
-          <Input placeholder='No label input' />
-          <Input label='Disabled' disabled />
-          <Input label='Comments' type='textarea' rows='4' />
-        </Section>
-        <Section>
           <H1>Table</H1>
           <Table data={tableData}
             columns={columns} />
+        </Section>
+        <Section>
+          <H1>Tag</H1>
+          <Tag>Hello</Tag>
+          <Tag>World</Tag>
+          <Tag color='primary'>Primary</Tag>
+          <Tag color='success'>Success</Tag>
+          <Tag color='danger'>Danger</Tag>
+          <H2>
+            Along with header
+            <Tag color='primary'>Blue tag</Tag>
+          </H2>
+          <H3>
+            More with header
+            <Tag color='danger'>Red tag</Tag>
+          </H3>
         </Section>
         <Section>
           <H1>Version Checker</H1>

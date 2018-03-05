@@ -12,6 +12,19 @@ p.af-paragraph { margin-bottom: mlf(2); line-height: 1.4; }
   letter-spacing: 1px;
   margin-top: mlf(2.5);
   margin-bottom: mlf(1);
+
+  .af-tag:first-child {
+    margin-left: mlf(2);
+  }
+
+  .af-tag {
+    font-size: 0.65rem;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    vertical-align: top;
+    margin-top: 0;
+  }
 }
 
 .af-page {
