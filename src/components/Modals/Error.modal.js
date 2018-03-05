@@ -12,7 +12,7 @@ class ErrorModal extends Component {
         </ModalHeader>
         <ModalBody>
           <P>It's a shame. Help us improve our service. Report a bug today.</P>
-          <Code>{error}</Code>
+          <Code>{error.toString()}</Code>
         </ModalBody>
         <ModalFooter>
           <Button color='danger'>Send Report to Support</Button>

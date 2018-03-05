@@ -44,7 +44,7 @@ export default function (state = initialState, action) {
         modal: payload }
     case UPDATE_ERROR:
       return { ...state,
-        isLoading: false,
+        isInterruptiveLoading: false,
         modal: ERROR_MODAL,
         error: payload }
     case DO_NOTHING:
