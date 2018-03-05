@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import { ERROR_MODAL } from '../../components/ModalWrapper'
 // ActionTypes
 export const SET_AUTH = '[APP] Set Auth'
@@ -35,10 +34,11 @@ export default function (state = initialState, action) {
         loaderMessage: payload }
     case START_STACK_LOADING:
       return { ...state,
-        loadStack: _.push(state.loadStack, payload) }
+        loadStack: [...state.loadStack, payload] }
     case END_STACK_LOADING:
+      const updatedStack = state.loadStack.filter(item => item !== payload)
       return { ...state,
-        loadStack: _.pull(state.loadStack, payload) }
+        loadStack: updatedStack }
     case SET_MODAL:
       return { ...state,
         modal: payload }

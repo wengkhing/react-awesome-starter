@@ -18,14 +18,17 @@ export default async function customAxios ({ loadMessage, loadKey, ...payload })
       'Authorization': `Bearer ${token.auth_key}`
     }
   }
+
   try {
     startLoading(loadMessage, loadKey)
     const result = await axios(request)
-    endLoading(loadKey)
     return Promise.resolve(result.data)
   } catch (err) {
-    updateError(err.response)
+    console.error(err)
+    updateError(err)
     return Promise.reject(err.response)
+  } finally {
+    endLoading(loadKey)
   }
 }
 
