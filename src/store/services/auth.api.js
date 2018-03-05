@@ -35,13 +35,15 @@ export function login (body) {
     method: 'post',
     url: `${API_BASEURL}/staffs/login`,
     data: body,
-    loadMessage: 'Logging In'
+    loadKey: 'Logging In',
+    isInterruptive: true
   })
 }
 
 export function me () {
   return customAxios({
     method: 'post',
-    url: `${API_BASEURL}/staffs/me`
+    url: `${API_BASEURL}/staffs/me`,
+    loadKey: 'Getting profile'
   })
 }

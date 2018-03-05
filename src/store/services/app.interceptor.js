@@ -8,7 +8,7 @@ import {
   UPDATE_ERROR
 } from '../reducers/app.reducer'
 
-export default async function customAxios ({ intLoadKey, loadKey, ...payload }) {
+export default async function customAxios ({ isInterruptive, loadKey, ...payload }) {
   const request = { ...payload }
   const token = localStorage.getItem('auth')
     ? JSON.parse(localStorage.getItem('auth'))
@@ -20,7 +20,7 @@ export default async function customAxios ({ intLoadKey, loadKey, ...payload }) 
   }
 
   try {
-    startLoading(intLoadKey, loadKey)
+    startLoading(loadKey, isInterruptive)
     const result = await axios(request)
     return Promise.resolve(result.data)
   } catch (err) {
@@ -28,36 +28,22 @@ export default async function customAxios ({ intLoadKey, loadKey, ...payload }) 
     updateError(err)
     return Promise.reject(err.response)
   } finally {
-    endLoading(loadKey)
+    endLoading(loadKey, isInterruptive)
   }
 }
 
-function startLoading (intKey, key) {
-  if (key) {
-    store.dispatch({
-      type: START_STACK_LOADING,
-      payload: key
-    })
-  } else {
-    store.dispatch({
-      type: START_INT_LOADING,
-      payload: intKey
-    })
-  }
+function startLoading (key, isInterruptive) {
+  store.dispatch({
+    type: isInterruptive ? START_INT_LOADING : START_STACK_LOADING,
+    payload: key
+  })
 }
 
-function endLoading (intKey, key) {
-  if (key) {
-    store.dispatch({
-      type: END_STACK_LOADING,
-      payload: key
-    })
-  } else {
-    store.dispatch({
-      type: END_INT_LOADING,
-      payload: intKey
-    })
-  }
+function endLoading (key, isInterruptive) {
+  store.dispatch({
+    type: isInterruptive ? END_INT_LOADING : END_STACK_LOADING,
+    payload: key
+  })
 }
 
 function updateError (err) {
