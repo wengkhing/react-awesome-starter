@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { Helmet } from 'react-helmet'
 import { DELETE_GROUP_MODAL, ERROR_MODAL } from '../../components/ModalWrapper'
 import { setModal } from '../../store/actions/app.action'
-
+import moment from 'moment'
 import {
   Page,
   Layout,
@@ -54,11 +54,13 @@ class KitchenSinkPage extends Component {
     super(props)
     this.state = {
       isLoading: false,
-      isInterruptLoading: false
+      isInterruptLoading: false,
+      date: moment()
     }
 
     this.updateLoadingState = this.updateLoadingState.bind(this)
     this.startLoader = this.startLoader.bind(this)
+    this.handleDateChange = this.handleDateChange.bind(this)
   }
 
   updateLoadingState () {
@@ -70,6 +72,10 @@ class KitchenSinkPage extends Component {
     setTimeout(() => {
       this.setState({ isInterruptLoading: false })
     }, 2500)
+  }
+
+  handleDateChange (date) {
+    this.setState({ date })
   }
 
   render () {
@@ -121,7 +127,20 @@ class KitchenSinkPage extends Component {
           <Input label='Paid?' type='checkbox' />
           <Input label='Male' type='radio' name='gender' />
           <Input label='Female' type='radio' name='gender' />
-          <Input label='Datetime' type='datetime-local' />
+          <Input label='Datetime'
+            type='datepicker'
+            selected={this.state.date}
+            onChange={this.handleDateChange}
+            todayButton={"Select today"}
+            minDate={moment()}
+            maxDate={moment().add(12, "months")}
+            showTimeSelect
+            timeFormat="HH:mm"
+            dateFormat="LLL"
+            showYearDropdown
+            showMonthDropdown
+            timeIntervals={30} />
+          <P>For datepicker usage, please to react-datepicker API documentation.</P>
           <Input label='Number' type='number' />
           <Input placeholder='No label input' />
           <Input label='Disabled' disabled />
