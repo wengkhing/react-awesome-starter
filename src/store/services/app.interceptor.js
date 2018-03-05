@@ -8,7 +8,7 @@ import {
   UPDATE_ERROR
 } from '../reducers/app.reducer'
 
-export default async function customAxios ({ loadMessage, loadKey, ...payload }) {
+export default async function customAxios ({ intLoadKey, loadKey, ...payload }) {
   const request = { ...payload }
   const token = localStorage.getItem('auth')
     ? JSON.parse(localStorage.getItem('auth'))
@@ -20,7 +20,7 @@ export default async function customAxios ({ loadMessage, loadKey, ...payload })
   }
 
   try {
-    startLoading(loadMessage, loadKey)
+    startLoading(intLoadKey, loadKey)
     const result = await axios(request)
     return Promise.resolve(result.data)
   } catch (err) {
@@ -32,7 +32,7 @@ export default async function customAxios ({ loadMessage, loadKey, ...payload })
   }
 }
 
-function startLoading (msg, key) {
+function startLoading (intKey, key) {
   if (key) {
     store.dispatch({
       type: START_STACK_LOADING,
@@ -41,12 +41,12 @@ function startLoading (msg, key) {
   } else {
     store.dispatch({
       type: START_INT_LOADING,
-      payload: msg
+      payload: intKey
     })
   }
 }
 
-function endLoading (key) {
+function endLoading (intKey, key) {
   if (key) {
     store.dispatch({
       type: END_STACK_LOADING,
@@ -54,7 +54,8 @@ function endLoading (key) {
     })
   } else {
     store.dispatch({
-      type: END_INT_LOADING
+      type: END_INT_LOADING,
+      payload: intKey
     })
   }
 }
