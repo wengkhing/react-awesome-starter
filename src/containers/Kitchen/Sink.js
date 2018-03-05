@@ -134,12 +134,15 @@ class KitchenSinkPage extends Component {
             todayButton={'Select today'}
             minDate={moment()}
             maxDate={moment().add(12, 'months')}
-            showTimeSelect
-            timeFormat='HH:mm'
             dateFormat='LLL'
             showYearDropdown
             showMonthDropdown
-            timeIntervals={30} />
+            showTimeSelect
+            minTime={moment().hours(7).minutes(0)}
+            maxTime={moment().hours(22).minutes(0)}
+            timeIntervals={60}
+            timeFormat='HH:mm'
+            withPortal />
           <P>For datepicker usage, please to react-datepicker API documentation.</P>
           <Input label='Number' type='number' />
           <Input placeholder='No label input' />
