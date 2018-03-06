@@ -16,6 +16,8 @@ export const Input = (props) => {
             showTimeSelect={showTimeSelect}
             withPortal={withPortal}
             className='af-datepicker'
+            preventOpenOnFocus={showTimeSelect}
+            readOnly
             calendarClassName={`${calendarClassName} ${showTimeSelect && withPortal ? '--mobile-with-timepicker' : ''}`}>
             {children}
           </DatePicker>
