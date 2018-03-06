@@ -11,6 +11,11 @@ export const DELETE_GROUP_MODAL = 'DELETE GROUP'
 export const ERROR_MODAL = 'ERROR'
 
 class ModalWrapper extends Component {
+  constructor (props) {
+    super(props)
+    this.hideModal = this.hideModal.bind(this)
+  }
+
   componentDidUpdate () {
     if (this.props.modal) this.modal.show()
   }
@@ -24,10 +29,16 @@ class ModalWrapper extends Component {
     }
   }
 
+  hideModal () {
+    setTimeout(() => {
+      this.props.setModal(null)
+    }, 400)
+  }
+
   render () {
     return (
       <Modal onMount={ref => (this.modal = ref)}
-        onHide={() => { this.props.setModal(null) }}
+        onHide={this.hideModal}
         forceNormalLayout>
         {this.renderModal()}
       </Modal>
