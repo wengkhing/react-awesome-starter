@@ -35,6 +35,14 @@
     z-index: 200;
     transition: all 0.3s ease;
 
+    @media only screen and (max-width: $device-sm-width) {
+      & {
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+      }
+    }
+
     &.--padded {
       padding: plf(5.5);
       overflow-y: auto;

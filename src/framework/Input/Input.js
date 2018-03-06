@@ -5,7 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 import './Input.scss'
 
 export const Input = (props) => {
-  const { label, type, children, showTimeSelect, withPortal, calendarClassName = '', ...attr } = props
+  const { label, type, children, showTimeSelect, calendarClassName = '', ...attr } = props
 
   switch (type) {
     case 'datepicker':
@@ -14,9 +14,11 @@ export const Input = (props) => {
           {label ? <label>{label}</label> : ''}
           <DatePicker {...attr}
             showTimeSelect={showTimeSelect}
-            withPortal={withPortal}
             className='af-datepicker'
-            calendarClassName={`${calendarClassName} ${showTimeSelect && withPortal ? '--mobile-with-timepicker' : ''}`}>
+            preventOpenOnFocus={showTimeSelect}
+            withPortal
+            readOnly
+            calendarClassName={`${calendarClassName} ${showTimeSelect ? '--mobile-with-timepicker' : ''}`}>
             {children}
           </DatePicker>
         </div>

@@ -141,9 +141,8 @@ class KitchenSinkPage extends Component {
             minTime={moment().hours(7).minutes(0)}
             maxTime={moment().hours(22).minutes(0)}
             timeIntervals={60}
-            timeFormat='HH:mm'
-            withPortal />
-          <P>For datepicker usage, please refer to <a href='https://github.com/Hacker0x01/react-datepicker' target='_blank'>Hacker0x01/react-datepicker</a> API documentation.</P>
+            timeFormat='HH:mm' />
+          <P>For datepicker usage, please to <a href='https://github.com/Hacker0x01/react-datepicker' target='_blank'>Hacker0x01/react-datepicker</a> API documentation.</P>
           <Input label='Number' type='number' />
           <Input placeholder='No label input' />
           <Input label='Disabled' disabled />
