@@ -24,7 +24,7 @@
     height: 100vh;
     background-color: rgba(0,0,0,0.5);
     z-index: 100;
-    transition: all 0.2s linear;
+    transition: all 0.4s linear;
   }
 
   .modal {
@@ -33,7 +33,15 @@
     max-width: $page-max-width - plf(24);
     @include shadow(1);
     z-index: 200;
-    transition: all 0.4s linear;
+    transition: all 0.3s ease;
+
+    @media only screen and (max-width: $device-sm-width) {
+      & {
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+      }
+    }
 
     &.--padded {
       padding: plf(5.5);
