@@ -55,7 +55,7 @@ class KitchenSinkPage extends Component {
     this.state = {
       isLoading: false,
       isInterruptLoading: false,
-      date: moment()
+      date: moment().add(59, 'minutes').startOf('hour')
     }
 
     this.updateLoadingState = this.updateLoadingState.bind(this)
@@ -143,7 +143,7 @@ class KitchenSinkPage extends Component {
             timeIntervals={60}
             timeFormat='HH:mm'
             withPortal />
-          <P>For datepicker usage, please to react-datepicker API documentation.</P>
+          <P>For datepicker usage, please refer to <a href='https://github.com/Hacker0x01/react-datepicker' target='_blank'>Hacker0x01/react-datepicker</a> API documentation.</P>
           <Input label='Number' type='number' />
           <Input placeholder='No label input' />
           <Input label='Disabled' disabled />
