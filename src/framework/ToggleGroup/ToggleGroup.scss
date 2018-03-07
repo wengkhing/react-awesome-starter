@@ -4,6 +4,8 @@
 .af-toggle-group {
   position: relative;
   padding: plf(2) plf(1);
+  overflow-x: auto;
+  white-space: nowrap;
 
   .af-tab {
     position: relative;

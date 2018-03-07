@@ -18,6 +18,7 @@ import {
   Crumb,
   Button,
   Input,
+  JSONInput,
   Loader,
   InterruptiveLoader,
   Modal,
@@ -61,7 +62,8 @@ class KitchenSinkPage extends Component {
       singleSelectData: null,
       multiSelectData: [],
       defaultSelectData: 'beef',
-      defaultMultiSelectData: ['chicken', 'duck']
+      defaultMultiSelectData: ['chicken', 'duck'],
+      jsonInput: { location: 'Sau Paolo' }
     }
 
     this.updateLoadingState = this.updateLoadingState.bind(this)
@@ -69,6 +71,7 @@ class KitchenSinkPage extends Component {
     this.handleDateChange = this.handleDateChange.bind(this)
     this.handleSingleSelect = this.handleSingleSelect.bind(this)
     this.handleMultiSelect = this.handleMultiSelect.bind(this)
+    this.handleJsonInput = this.handleJsonInput.bind(this)
   }
 
   updateLoadingState () {
@@ -100,6 +103,10 @@ class KitchenSinkPage extends Component {
 
   handleDefaultMultiSelect (data) {
     this.setState({ defaultMultiSelectData: data })
+  }
+
+  handleJsonInput (data) {
+    this.setState({ jsonInput: data })
   }
 
   render () {
@@ -176,6 +183,11 @@ class KitchenSinkPage extends Component {
           <H1>Interruptive Loader</H1>
           <InterruptiveLoader isLoading={this.state.isInterruptLoading} />
           <Button color='primary' onClick={this.startLoader}>Start Loading</Button>
+        </Section>
+        <Section>
+          <H1>JSON Input</H1>
+          <JSONInput label='Info' value={this.state.jsonInput} onChange={this.handleJsonInput} />
+          <p>Output: {JSON.stringify(this.state.jsonInput)}</p>
         </Section>
         <Section>
           <H1>Layout</H1>
