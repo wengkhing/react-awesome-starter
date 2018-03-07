@@ -38,7 +38,10 @@ export class JSONInput extends Component {
 
   convertToJson (data) {
     const obj = {}
-    data.map(item => { obj[item.key] = item.value })
+    data.map(item => {
+      obj[item.key] = item.value
+      return null
+    })
     return obj
   }
 
@@ -50,6 +53,7 @@ export class JSONInput extends Component {
         key,
         value: json[key]
       })
+      return null
     })
 
     return arr
