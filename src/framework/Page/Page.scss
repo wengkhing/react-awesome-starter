@@ -1,10 +1,10 @@
 @import '../utils/utility';
 @import '../utils/variables';
 
-h1.af-page-header { font-size: 1.6em; }
-h2.af-page-header { font-size: 1.3em; font-weight: 400 !important; }
-h3.af-page-header { font-size: 0.8em; letter-spacing: 2px !important; }
-p.af-paragraph { margin-bottom: mlf(2); line-height: 1.4; }
+h1.H1 { font-size: 1.6em; }
+h2.H2 { font-size: 1.3em; font-weight: 400 !important; }
+h3.H3 { font-size: 0.8em; letter-spacing: 2px !important; }
+p.P { margin-bottom: mlf(2); line-height: 1.4; }
 
 .af-page-header {
   font-weight: 600;
@@ -31,6 +31,14 @@ p.af-paragraph { margin-bottom: mlf(2); line-height: 1.4; }
   position: relative;
   max-width: $page-max-width;
   margin: mlf(2) auto;
+
+  &.--fluid {
+    max-width: 100%
+  }
+
+  &.--no-margin {
+    margin: 0;
+  }
 
   @media only screen and (max-width: $page-max-width) {
     & {

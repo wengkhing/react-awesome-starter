@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux'
 import { Helmet } from 'react-helmet'
 
 import { login } from '../../store/actions/auth.action'
+import { Page } from '../../framework'
 
 import './Login.scss'
 
@@ -35,23 +36,25 @@ class LoginPage extends Component {
         <header className='header'>
           <h1>Meetup Buzzer</h1>
         </header>
-        <div className='input-element'>
-          <label>Email</label>
-          <input type='text'
-            value={this.state.email}
-            onChange={(e) => this.handleInputChange('email', e)} />
-        </div>
-        <div className='input-element'>
-          <label>Password</label>
-          <input type='password'
-            value={this.state.password}
-            onChange={(e) => this.handleInputChange('password', e)} />
-        </div>
-        <button className='btn'
-          disabled={this.props.isSubmitting}
-          onClick={() => this.props.login(this.state)}>
-          Login
-        </button>
+        <Page>
+          <div className='input-element'>
+            <label>Email</label>
+            <input type='text'
+              value={this.state.email}
+              onChange={(e) => this.handleInputChange('email', e)} />
+          </div>
+          <div className='input-element'>
+            <label>Password</label>
+            <input type='password'
+              value={this.state.password}
+              onChange={(e) => this.handleInputChange('password', e)} />
+          </div>
+          <button className='btn'
+            disabled={this.props.isSubmitting}
+            onClick={() => this.props.login(this.state)}>
+            Login
+          </button>
+        </Page>
       </div>
     )
   }

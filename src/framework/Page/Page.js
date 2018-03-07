@@ -7,10 +7,19 @@ import styleVar from '../utils/_variables.scss'
 const mediaQuery = `@media only screen and (max-width: ${styleVar.pageMaxWidth})`
 
 export const Page = (props) => {
-  const { className = '', children, ...attr } = props
+  const {
+    fluid,
+    noMargin,
+    className = '',
+    children,
+    ...attr } = props
 
   return (
-    <div className={`af-page ${className}`}
+    <div className={`
+      af-page Page ${className}
+      ${fluid ? '--fluid' : ''}
+      ${noMargin ? '--no-margin' : ''}
+    `}
       {...attr}>
       {children}
     </div>
@@ -84,7 +93,7 @@ export const Section = (props) => {
   }
 
   return (
-    <section className={`af-page-section ${className}`}
+    <section className={`af-page-section Section ${className}`}
       {...attr} style={{...gridStyle, ...style}} >
       {children}
     </section>
@@ -94,7 +103,7 @@ export const Section = (props) => {
 export const H1 = (props) => {
   const { className = '', children, ...attr } = props
   return (
-    <h1 className={`af-page-header ${className}`}
+    <h1 className={`af-page-header H1 ${className}`}
       {...attr} >
       {children}
     </h1>
@@ -104,7 +113,7 @@ export const H1 = (props) => {
 export const H2 = (props) => {
   const { className = '', children, ...attr } = props
   return (
-    <h2 className={`af-page-header ${className}`}
+    <h2 className={`af-page-header H2 ${className}`}
       {...attr} >
       {children}
     </h2>
@@ -114,7 +123,7 @@ export const H2 = (props) => {
 export const H3 = (props) => {
   const { className = '', children, ...attr } = props
   return (
-    <h3 className={`af-page-header ${className}`}
+    <h3 className={`af-page-header H3 ${className}`}
       {...attr} >
       {children}
     </h3>
@@ -124,7 +133,7 @@ export const H3 = (props) => {
 export const P = (props) => {
   const { className = '', children, ...attr } = props
   return (
-    <p className={`af-paragraph ${className}`}
+    <p className={`af-paragraph P ${className}`}
       {...attr} >
       {children}
     </p>
@@ -134,7 +143,7 @@ export const P = (props) => {
 export const Code = (props) => {
   const { className = '', children, ...attr } = props
   return (
-    <code className={`af-code ${className}`}
+    <code className={`af-code Code ${className}`}
       {...attr} >
       {children}
     </code>
