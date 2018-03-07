@@ -59,7 +59,9 @@ class KitchenSinkPage extends Component {
       isInterruptLoading: false,
       date: moment().add(59, 'minutes').startOf('hour'),
       singleSelectData: null,
-      multiSelectData: []
+      multiSelectData: [],
+      defaultSelectData: 'beef',
+      defaultMultiSelectData: ['chicken', 'duck']
     }
 
     this.updateLoadingState = this.updateLoadingState.bind(this)
@@ -90,6 +92,14 @@ class KitchenSinkPage extends Component {
 
   handleMultiSelect (data) {
     this.setState({ multiSelectData: data })
+  }
+
+  handleDefaultSelect (data) {
+    this.setState({ defaultSelectData: data })
+  }
+
+  handleDefaultMultiSelect (data) {
+    this.setState({ defaultMultiSelectData: data })
   }
 
   render () {
@@ -284,20 +294,43 @@ class KitchenSinkPage extends Component {
         </Section>
         <Section>
           <H1>Toggle Group</H1>
-          <H2>Single select</H2>
-          <ToggleGroup multiSelect onChange={(data) => this.handleMultiSelect(data)}>
-            <Tab value='apple'>Apple</Tab>
-            <Tab value='orange'>Orange</Tab>
-            <Tab value='berry'>Berry</Tab>
-          </ToggleGroup>
-          <P>You've selected {this.state.multiSelectData.toString()}</P>
           <H2>Multi select</H2>
-          <ToggleGroup onChange={(data) => this.handleSingleSelect(data)}>
+          <ToggleGroup multiSelect
+            selected={this.state.multiSelectData}
+            onChange={(data) => this.handleMultiSelect(data)}>
             <Tab value='apple'>Apple</Tab>
             <Tab value='orange'>Orange</Tab>
             <Tab value='berry'>Berry</Tab>
           </ToggleGroup>
-          <P>You've selected {this.state.singleSelectData}</P>
+          <P>Output: [{this.state.multiSelectData.toString()}]</P>
+          <H2>Single select</H2>
+          <ToggleGroup
+            selected={this.state.singleSelectData}
+            onChange={(data) => this.handleSingleSelect(data)}>
+            <Tab value='bike'>Bike</Tab>
+            <Tab value='sedan'>Sedan</Tab>
+            <Tab value='van'>Van</Tab>
+          </ToggleGroup>
+          <P>Output: {this.state.singleSelectData}</P>
+          <H2>Default value</H2>
+          <ToggleGroup
+            selected={this.state.defaultSelectData}
+            onChange={(data) => this.handleDefaultSelect(data)}>
+            <Tab value='chicken'>Chicken</Tab>
+            <Tab value='beef'>Beef</Tab>
+            <Tab value='lamb'>Lamb</Tab>
+            <Tab value='duck'>Duck</Tab>
+          </ToggleGroup>
+          <P>Output: {this.state.defaultSelectData}</P>
+          <ToggleGroup multiSelect
+            selected={this.state.defaultMultiSelectData}
+            onChange={(data) => this.handleDefaultMultiSelect(data)}>
+            <Tab value='chicken'>Chicken</Tab>
+            <Tab value='beef'>Beef</Tab>
+            <Tab value='lamb'>Lamb</Tab>
+            <Tab value='duck'>Duck</Tab>
+          </ToggleGroup>
+          <P>Output: [{this.state.defaultMultiSelectData.toString()}]</P>
         </Section>
         <Section>
           <H1>Version Checker</H1>

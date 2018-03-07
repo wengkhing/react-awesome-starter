@@ -3,6 +3,7 @@
 
 .af-toggle-group {
   position: relative;
+  padding: plf(2) plf(1);
 
   .af-tab {
     position: relative;
@@ -28,6 +29,15 @@
     input[type="checkbox"]:checked + label{
       color: #fff;
       background-color: $primary-color;
+      font-weight: 300;
+    }
+  }
+
+  .af-tab:first-child {
+    input[type="radio"] + label,
+    input[type="checkbox"] + label{
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
     }
   }
 
@@ -35,6 +45,8 @@
     input[type="radio"] + label,
     input[type="checkbox"] + label{
       border-right: 1px $primary-color solid;
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
     }
   }
 }
