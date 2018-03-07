@@ -1,0 +1,40 @@
+@import '../utils/utility';
+@import '../utils/variables';
+
+.af-toggle-group {
+  position: relative;
+
+  .af-tab {
+    position: relative;
+    display: inline-block;
+
+    input {
+      position: absolute;
+      appearance: none;
+      margin: 0;
+    }
+
+    input[type="radio"] + label,
+    input[type="checkbox"] + label{
+      display: block;
+      letter-spacing: 1px;
+      padding: plf(1) plf(3);
+      color: $primary-color;
+      border: 1px $primary-color solid;
+      border-right: none;
+    }
+
+    input[type="radio"]:checked + label,
+    input[type="checkbox"]:checked + label{
+      color: #fff;
+      background-color: $primary-color;
+    }
+  }
+
+  .af-tab:last-child {
+    input[type="radio"] + label,
+    input[type="checkbox"] + label{
+      border-right: 1px $primary-color solid;
+    }
+  }
+}

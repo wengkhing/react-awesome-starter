@@ -27,7 +27,9 @@ import {
   MenuBar,
   MenuItem,
   Table,
-  Tag
+  Tag,
+  ToggleGroup,
+  Tab
 } from '../../framework'
 
 import './Sink.scss'
@@ -55,12 +57,16 @@ class KitchenSinkPage extends Component {
     this.state = {
       isLoading: false,
       isInterruptLoading: false,
-      date: moment().add(59, 'minutes').startOf('hour')
+      date: moment().add(59, 'minutes').startOf('hour'),
+      singleSelectData: null,
+      multiSelectData: []
     }
 
     this.updateLoadingState = this.updateLoadingState.bind(this)
     this.startLoader = this.startLoader.bind(this)
     this.handleDateChange = this.handleDateChange.bind(this)
+    this.handleSingleSelect = this.handleSingleSelect.bind(this)
+    this.handleMultiSelect = this.handleMultiSelect.bind(this)
   }
 
   updateLoadingState () {
@@ -76,6 +82,14 @@ class KitchenSinkPage extends Component {
 
   handleDateChange (date) {
     this.setState({ date })
+  }
+
+  handleSingleSelect (data) {
+    this.setState({ singleSelectData: data })
+  }
+
+  handleMultiSelect (data) {
+    this.setState({ multiSelectData: data })
   }
 
   render () {
@@ -267,6 +281,23 @@ class KitchenSinkPage extends Component {
             More with header
             <Tag color='danger'>Red tag</Tag>
           </H3>
+        </Section>
+        <Section>
+          <H1>Toggle Group</H1>
+          <H2>Single select</H2>
+          <ToggleGroup multiSelect onChange={(data) => this.handleMultiSelect(data)}>
+            <Tab value='apple'>Apple</Tab>
+            <Tab value='orange'>Orange</Tab>
+            <Tab value='berry'>Berry</Tab>
+          </ToggleGroup>
+          <P>You've selected {this.state.multiSelectData.toString()}</P>
+          <H2>Multi select</H2>
+          <ToggleGroup onChange={(data) => this.handleSingleSelect(data)}>
+            <Tab value='apple'>Apple</Tab>
+            <Tab value='orange'>Orange</Tab>
+            <Tab value='berry'>Berry</Tab>
+          </ToggleGroup>
+          <P>You've selected {this.state.singleSelectData}</P>
         </Section>
         <Section>
           <H1>Version Checker</H1>
