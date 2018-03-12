@@ -39,8 +39,7 @@ export class JSONInput extends Component {
   convertToJson (data) {
     const obj = {}
     data.map(item => {
-      if (item.key && item.value)
-        obj[item.key] = item.value
+      if (item.key && item.value) { obj[item.key] = item.value }
     })
     return obj
   }
