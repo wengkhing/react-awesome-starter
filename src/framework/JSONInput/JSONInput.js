@@ -40,6 +40,7 @@ export class JSONInput extends Component {
     const obj = {}
     data.map(item => {
       if (item.key && item.value) { obj[item.key] = item.value }
+      return null
     })
     return obj
   }
@@ -52,6 +53,7 @@ export class JSONInput extends Component {
         key,
         value: json[key]
       })
+      return null
     })
 
     return arr

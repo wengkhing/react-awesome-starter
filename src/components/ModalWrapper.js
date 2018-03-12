@@ -32,6 +32,7 @@ class ModalWrapper extends Component {
         return <DeleteGroupModal modal={this.modal} />
       case ERROR_MODAL:
         return <ErrorModal modal={this.modal} />
+      default:
     }
   }
 
