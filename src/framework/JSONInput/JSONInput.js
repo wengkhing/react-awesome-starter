@@ -10,8 +10,8 @@ export class JSONInput extends Component {
     this.state = {
       data: [{
         id: _.uniqueId(),
-        key: '',
-        value: ''
+        key: undefined,
+        value: undefined
       }]
     }
 
@@ -38,7 +38,10 @@ export class JSONInput extends Component {
 
   convertToJson (data) {
     const obj = {}
-    data.map(item => { obj[item.key] = item.value })
+    data.map(item => {
+      if (item.key && item.value)
+        obj[item.key] = item.value
+    })
     return obj
   }
 
@@ -64,7 +67,7 @@ export class JSONInput extends Component {
       this.setState({
         data: [
           ...data.slice(0, index),
-          { ...data[index], [isKey ? 'key' : 'value']: ev.target.value },
+          { ...data[index], [isKey ? 'key' : 'value']: ev.target.value ? ev.target.value : undefined },
           ...data.slice(index + 1)
         ]
       })
@@ -73,7 +76,7 @@ export class JSONInput extends Component {
 
   addRow () {
     this.setState({
-      data: [...this.state.data, { id: _.uniqueId(), key: '', value: '' }]
+      data: [...this.state.data, { id: _.uniqueId(), key: undefined, value: undefined }]
     })
   }
 
