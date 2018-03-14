@@ -63,7 +63,8 @@ class KitchenSinkPage extends Component {
       multiSelectData: [],
       defaultSelectData: 'beef',
       defaultMultiSelectData: ['chicken', 'duck'],
-      jsonInput: { location: 'Sau Paolo' }
+      jsonDefaultValue: { location: 'Kuala Lumpur' },
+      jsonInput: {}
     }
 
     this.updateLoadingState = this.updateLoadingState.bind(this)
@@ -72,6 +73,7 @@ class KitchenSinkPage extends Component {
     this.handleSingleSelect = this.handleSingleSelect.bind(this)
     this.handleMultiSelect = this.handleMultiSelect.bind(this)
     this.handleJsonInput = this.handleJsonInput.bind(this)
+    this.handleSetJson = this.handleSetJson.bind(this)
   }
 
   updateLoadingState () {
@@ -107,6 +109,15 @@ class KitchenSinkPage extends Component {
 
   handleJsonInput (data) {
     this.setState({ jsonInput: data })
+  }
+
+  handleSetJson () {
+    this.setState({
+      jsonDefaultValue: {
+        hello: 'world',
+        set: 'state'
+      }
+    })
   }
 
   render () {
@@ -186,8 +197,14 @@ class KitchenSinkPage extends Component {
         </Section>
         <Section>
           <H1>JSON Input</H1>
-          <JSONInput label='Info' value={this.state.jsonInput} onChange={this.handleJsonInput} />
+          <P>Use <code>defaultValue</code> to set default value or programatically change the JsonInput. <code>value</code> is for <b>READ ONLY</b>. Do not share a same reference for <code>defaultValue</code> and <code>value</code>.</P>
+          <JSONInput label='Info'
+            defaultValue={this.state.jsonDefaultValue}
+            value={this.state.jsonInput}
+            onChange={this.handleJsonInput} />
           <p>Output: {JSON.stringify(this.state.jsonInput)}</p>
+          <Button onClick={this.handleSetJson}>Set JSON</Button>
+          <P>This button changes the <code>defaultValue</code> of JSONInput instead of <code>value</code>.<br />Remember, <code>value</code> is <b>READ ONLY</b>! </P>
         </Section>
         <Section>
           <H1>Layout</H1>

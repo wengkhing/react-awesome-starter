@@ -4,7 +4,27 @@
 h1.H1 { font-size: 1.6em; }
 h2.H2 { font-size: 1.3em; font-weight: 400 !important; }
 h3.H3 { font-size: 0.8em; letter-spacing: 2px !important; }
-p.P { margin-bottom: mlf(2); line-height: 1.4; }
+p.P {
+  margin-bottom: mlf(2);
+  line-height: 1.4;
+
+  b {
+    font-weight: 600;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  code {
+    display: inline;
+    margin: 0 mlf(0.5);
+    padding: plf(0.5) plf(1);
+    font-family: monospace;
+    background-color: #e8e8e8;
+  }
+}
+
 
 .af-page-header {
   font-weight: 600;

@@ -8,10 +8,11 @@ export class JSONInput extends Component {
   constructor (props) {
     super(props)
     this.state = {
+      defaultValue: {},
       data: [{
         id: _.uniqueId(),
-        key: undefined,
-        value: undefined
+        key: '',
+        value: ''
       }]
     }
 
@@ -23,17 +24,22 @@ export class JSONInput extends Component {
     this.removeRow = this.removeRow.bind(this)
   }
 
-  componentDidMount () {
-    const { value } = this.props
-    if (value && !_.isEmpty(value)) {
-      this.setState({
-        data: this.convertToArray(this.props.value)
-      })
+  componentWillReceiveProps (nextProps) {
+    const { defaultValue } = nextProps
+    if (JSON.stringify(defaultValue) !== JSON.stringify(this.state.defaultValue)) {
+      if (defaultValue && !_.isEmpty(defaultValue)) {
+        this.setState({
+          defaultValue,
+          data: this.convertToArray(defaultValue)
+        })
+      }
     }
   }
 
   componentWillUpdate (nextProps, nextState) {
-    if (nextState.data !== this.state.data) this.props.onChange(this.convertToJson(nextState.data))
+    if (nextState.data !== this.state.data) {
+      this.props.onChange(this.convertToJson(nextState.data))
+    }
   }
 
   convertToJson (data) {
@@ -77,7 +83,7 @@ export class JSONInput extends Component {
 
   addRow () {
     this.setState({
-      data: [...this.state.data, { id: _.uniqueId(), key: undefined, value: undefined }]
+      data: [...this.state.data, { id: _.uniqueId(), key: '', value: '' }]
     })
   }
 
