@@ -10,6 +10,7 @@ export const Page = (props) => {
   const {
     fluid,
     noMargin,
+    paperWhite,
     className = '',
     children,
     ...attr } = props
@@ -19,6 +20,7 @@ export const Page = (props) => {
       af-page Page ${className}
       ${fluid ? '--fluid' : ''}
       ${noMargin ? '--no-margin' : ''}
+      ${paperWhite ? '--paper-white' : ''}
     `}
       {...attr}>
       {children}

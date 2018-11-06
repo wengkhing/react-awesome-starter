@@ -122,7 +122,7 @@ class KitchenSinkPage extends Component {
 
   render () {
     return (
-      <Page className='scope-kitchen-sink'>
+      <Page paperWhite className='scope-kitchen-sink'>
         <Helmet title='React Awesome Starter: Kitchen Sink' />
         <Section>
           <p>This document is written in alphabatical order of components</p>

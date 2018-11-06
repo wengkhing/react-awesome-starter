@@ -12,9 +12,8 @@
   label {
     font-size: $input-label-font-size;
     margin-bottom: plf(1);
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     display: block;
-    text-transform: uppercase;
     font-weight: 600;
   }
 
@@ -23,7 +22,8 @@
     width: 100%;
     padding: plf(1) plf(2);
     font-size: $input-value-font-size;
-    letter-spacing: 2px;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 1px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     outline: none;
@@ -49,7 +49,9 @@
   textarea {
     display: block;
     width: 100%;
-    letter-spacing: 2px;
+    font-family: 'Arial', sans-serif;
+    font-size: $input-value-font-size;
+    letter-spacing: 1px;
     line-height: 1.6;
     box-sizing: border-box;
     border: 1px solid #ccc;
