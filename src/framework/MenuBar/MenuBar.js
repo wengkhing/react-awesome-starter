@@ -36,9 +36,9 @@ export class MenuBar extends Component {
     return (
       <div className='component-menu-bar'>
         <section className='menu-bar'>
-          <a className='burger-icon' onClick={() => this.toggleMenu(true)}>
+          <button className='burger-icon' onClick={() => this.toggleMenu(true)}>
             <i className='fa fa-bars' aria-hidden='true' />
-          </a>
+          </button>
         </section>
         <Transition in={this.state.isOpen} timeout={this.state.isOpen ? 100 : 400} appear unmountOnExit>
           {(state) => (
@@ -46,8 +46,8 @@ export class MenuBar extends Component {
               <Transition in={this.state.isOpen} timeout={this.state.isOpen ? 100 : 400} appear unmountOnExit>
                 {(state) => (
                   <aside style={{ ...sidebarTransition[state] }}>
-                    <a className='close'
-                      onClick={() => this.toggleMenu(false)}>x</a>
+                    <button className='close'
+                      onClick={() => this.toggleMenu(false)}>x</button>
                     <header>
                       <h1>Welcome</h1>
                       <h2>Mohammad Ibrahim Ali bin Yuusof</h2>

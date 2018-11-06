@@ -20,6 +20,8 @@
 
     .burger-icon {
       cursor: pointer;
+      border: 0;
+      background: none;
     }
   }
 
@@ -50,6 +52,9 @@
         top: 0px;
         right: 4px;
         padding: 12px;
+        border: 0;
+        background: none;
+        color: #fff;
         font-size: 22px;
         font-weight: 600;
       }
