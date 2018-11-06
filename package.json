@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "react-awesome-starter",
   "version": "0.1.0",
   "private": true,
   "homepage": ".",
@@ -28,8 +28,8 @@
     "eslint-plugin-react": "7.11.1",
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "2.0.0",
-    "fork-ts-checker-webpack-plugin-alt": "0.4.14",
     "font-awesome": "^4.7.0",
+    "fork-ts-checker-webpack-plugin-alt": "0.4.14",
     "fs-extra": "7.0.0",
     "html-webpack-plugin": "4.0.0-alpha.2",
     "jest": "23.6.0",
@@ -37,8 +37,8 @@
     "jest-resolve": "23.6.0",
     "mini-css-extract-plugin": "0.4.3",
     "moment": "^2.21.0",
-    "optimize-css-assets-webpack-plugin": "5.0.1",
     "object-assign": "4.1.1",
+    "optimize-css-assets-webpack-plugin": "5.0.1",
     "pnp-webpack-plugin": "1.1.0",
     "postcss-flexbugs-fixes": "4.1.0",
     "postcss-loader": "3.0.0",
@@ -70,13 +70,13 @@
     "webpack": "4.19.1",
     "webpack-dev-server": "3.1.9",
     "webpack-manifest-plugin": "2.0.4",
-    "workbox-webpack-plugin": "3.6.3",
-    "whatwg-fetch": "2.0.3"
+    "whatwg-fetch": "2.0.3",
+    "workbox-webpack-plugin": "3.6.3"
   },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom",
+    "test": "node scripts/test.js --env=node",
     "lint": "standard --verbose --fix | snazzy",
     "prerelease": "standard-version --prerelease",
     "release": "standard-version",
@@ -106,22 +106,6 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "standard": {
-    "parser": "babel-eslint",
-    "plugins": [
-      "flowtype"
-    ],
-    "env": [
-      "jest",
-      "browser",
-      "es6"
-    ],
-    "ignore": [
-      "/build/",
-      "/config/",
-      "/src/registerServiceWorker.js"
-    ]
-  },
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",

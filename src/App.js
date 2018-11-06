@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import { withRouter } from 'react-router'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
@@ -37,9 +35,5 @@ class App extends Component {
   }
 }
 
-function mapDispatchtoProps (dispatch) {
-  return bindActionCreators({}, dispatch)
-}
-
 // withRouter is needed
-export default withRouter(connect(null, mapDispatchtoProps)(App))
+export default withRouter(App)

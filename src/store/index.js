@@ -4,7 +4,7 @@ import thunk from 'redux-thunk'
 import axios from 'axios'
 import rootReducer from './reducers'
 
-export default (history: Object, initialState: Object = {}) => {
+export default (history, initialState = {}) => {
   const enhancers = []
   const middleware = [
     thunk.withExtraArgument(axios),
